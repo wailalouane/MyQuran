@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HomeActivity">
+
+
+
+    <include
+        android:id="@+id/include"
+        layout="@layout/toolbar" />
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/historique_layout"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/search_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:orientation="horizontal"
+
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/historique"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="25dp"
+            android:textColor="@color/black"
+
+            />
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/historique"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:orientation="horizontal"
+
+            />
+
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
+
+    <SearchView
+        android:id="@+id/search_bar"
+        app:queryHint="search surah name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:autofillHints="search surah"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/include"></SearchView>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/listSurah"
+        android:layout_width="409dp"
+        android:layout_height="558dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/historique_layout" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
