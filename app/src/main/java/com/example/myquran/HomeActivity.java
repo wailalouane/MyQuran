@@ -82,7 +82,7 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
         surahListHis.add(new SurahModel(7, "الأعراف", "Al-A'raf (The Heights)", 151));
         surahListHis.add(new SurahModel(30, "الروم", "Ar-Rum (The Romans)", 405));
         surahListHis.add(new SurahModel(7, "الأعراف", "Al-A'raf (The Heights)", 151));
-        surahListHis.add(new SurahModel(30, "الروم", "Ar-Rum (The Romans)", 405));
+        surahListHis.add(new SurahModel(30, "الروم", "Ar-Rum (The Romans)", 406));
 
 
 
