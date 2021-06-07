@@ -135,6 +135,8 @@ public class PageFragment1 extends Fragment {
 
                         }
                         ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
+                        ForegroundColorSpan fcsblack2=new ForegroundColorSpan(Color.BLACK);
+                        fullSpanneble.setSpan(fcsblack2,0,15,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         int startIndex =fullText.indexOf(subStringList.get(subStringList.size()-1));
                         fullSpanneble.setSpan(fcsblack,startIndex-10,startIndex+subStringList.get(subStringList.size()-1).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
