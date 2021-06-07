@@ -115,7 +115,7 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
 
            /* intent.putExtra("la valeur","jooowez");*/
 
-            Toast.makeText(HomeActivity.this,surahList.get(position).getNameSurahArabe(),Toast.LENGTH_SHORT).show();
+            Toast.makeText(HomeActivity.this,position,Toast.LENGTH_SHORT).show();
             /*Toast.makeText(HomeActivity.this,String.valueOf(position),Toast.LENGTH_SHORT).show();*/
             startActivity(intent);
 
