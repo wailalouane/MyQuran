@@ -29,7 +29,7 @@ import java.util.List;
 
 public class PageFragment1 extends Fragment {
 
-    String json;
+    String json;//todo nadhir hadi hiya el variable
     int cptShow=2;
 
     @Nullable
@@ -46,7 +46,7 @@ public class PageFragment1 extends Fragment {
         ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
         ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
 
-        surhText.setText(json);
+        surhText.setText(json);//todo nadhiir hna la variable rani 7titha f textView
        /* surhText.setText(Html.fromHtml(
                 json
         ));*/
