@@ -18,6 +18,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.example.myquran.MyQuranApp;
 import com.example.myquran.R;
 
 import org.json.JSONArray;
@@ -29,7 +30,7 @@ import java.util.List;
 
 public class PageFragment1 extends Fragment {
 
-    String json;//todo nadhir hadi hiya el variable
+    String json;
     int cptShow=2;
 
     @Nullable
@@ -46,7 +47,7 @@ public class PageFragment1 extends Fragment {
         ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
         ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
 
-        surhText.setText(json);//todo nadhiir hna la variable rani 7titha f textView
+        surhText.setText(json);
        /* surhText.setText(Html.fromHtml(
                 json
         ));*/
@@ -73,6 +74,7 @@ public class PageFragment1 extends Fragment {
 
         final String fullText=surhText.getText().toString();//all the page text
 
+        ((MyQuranApp) getActivity().getApplication()).setSurahText(surhText);
 
 
         hideBtn.setOnClickListener(new View.OnClickListener() {
@@ -98,6 +100,7 @@ public class PageFragment1 extends Fragment {
                 cptShow=0;
                 surhText.setText(fullSpanneble);
 
+                ((MyQuranApp) getActivity().getApplication()).setSurahText(surhText);
 
             }
         });
@@ -154,6 +157,8 @@ public class PageFragment1 extends Fragment {
 
 
                 surhText.setText(fullSpanneble);
+
+                ((MyQuranApp) getActivity().getApplication()).setSurahText(surhText);
             }
         });
         return rootView;

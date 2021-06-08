@@ -11,6 +11,8 @@ public class MainActivity extends AppCompatActivity {
 
     private static int SPLACH_TIME_OUT = 4000;
 
+    private String surah_text;
+
 
 
     @Override
