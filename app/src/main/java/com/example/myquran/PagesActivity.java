@@ -11,8 +11,15 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.example.myquran.entities.fragments.PageFragment1;
+import com.example.myquran.entities.fragments.PageFragment10;
 import com.example.myquran.entities.fragments.PageFragment2;
 import com.example.myquran.entities.fragments.PageFragment3;
+import com.example.myquran.entities.fragments.PageFragment4;
+import com.example.myquran.entities.fragments.PageFragment5;
+import com.example.myquran.entities.fragments.PageFragment6;
+import com.example.myquran.entities.fragments.PageFragment7;
+import com.example.myquran.entities.fragments.PageFragment8;
+import com.example.myquran.entities.fragments.PageFragment9;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -54,6 +61,13 @@ public class PagesActivity extends AppCompatActivity {
         list.add(new PageFragment1());
         list.add(new PageFragment2());
         list.add(new PageFragment3());
+        list.add(new PageFragment4());
+        list.add(new PageFragment5());
+        list.add(new PageFragment6());
+        list.add(new PageFragment7());
+        list.add(new PageFragment8());
+        list.add(new PageFragment9());
+        list.add(new PageFragment10());
 
 
         Collections.reverse(list);//reverse pour lire de droite a gauche (en arabe)
@@ -64,7 +78,7 @@ public class PagesActivity extends AppCompatActivity {
 
         mPagerAdapter=new SlidePageAdapter(getSupportFragmentManager(),list,json);//appeler le constructure de slide page(fragment)
         mPager.setAdapter(mPagerAdapter);
-        mPager.setCurrentItem(2);//ici ouvrir la page qu'il faut on va utilisé le variable pos
+        mPager.setCurrentItem(9);//ici ouvrir la page qu'il faut on va utilisé le variable pos
 
     }
 

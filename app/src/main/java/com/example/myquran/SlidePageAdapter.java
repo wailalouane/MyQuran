@@ -30,7 +30,7 @@ class SlidePageAdapter extends FragmentStatePagerAdapter {
     public SlidePageAdapter(FragmentManager fm,List<Fragment> fragmentList,String json){
         super(fm);
         this.mFragmentList=fragmentList;
-        this.json=json;
+        this.json=json;// the one of the JSon file
     }
 
 
@@ -65,7 +65,8 @@ class SlidePageAdapter extends FragmentStatePagerAdapter {
                 surahName=surahobj.getString("name");
                 JSONArray ayaArray = surahobj.getJSONArray("ayahs");
                 int index=0;
-                int page = 564-pos;
+                int page =571-pos;
+                /*int page = 564-pos;*/
                 while (!finPage&&index<ayaArray.length()){
                     if(ayaArray.getJSONObject(index).getInt("page")>page){
                         finPage=true;
