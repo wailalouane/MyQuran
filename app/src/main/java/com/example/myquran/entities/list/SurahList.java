@@ -75,10 +75,10 @@ public class SurahList {
        surahList.add(new SurahModel(65, "الطلاق", "At-Talaq (The Divorce)", 558));
        surahList.add(new SurahModel(66, "التحريم", "At-Tahrim (The Prohibition)", 560));
        surahList.add(new SurahModel(67, "الملك", "Al-Mulk (Dominion)", 562));
-       surahList.add(new SurahModel(68, "القلم", "Al-Qalam (The Pen)", 565));
-       surahList.add(new SurahModel(69, "الحاقة", "Al-Haqqah (The Inevitable)", 567));
-       surahList.add(new SurahModel(70, "المعارج", "Al-Ma'arij (The Ways of Ascent)", 569));
-       surahList.add(new SurahModel(71, "نوح", "Nuh (Noah)", 571));
+       surahList.add(new SurahModel(68, "القلم", "Al-Qalam (The Pen)", 564));
+       surahList.add(new SurahModel(69, "الحاقة", "Al-Haqqah (The Inevitable)", 566));
+       surahList.add(new SurahModel(70, "المعارج", "Al-Ma'arij (The Ways of Ascent)", 568));
+       surahList.add(new SurahModel(71, "نوح", "Nuh (Noah)", 570));
        surahList.add(new SurahModel(72, "الجن", "Al-Jinn (The Jinn)", 572));
        surahList.add(new SurahModel(73, "المزمل", "Al-Muzammil (The One wrapped in Garments)", 574));
        surahList.add(new SurahModel(74, "المدثر", "Al-Muddaththir (The One Enveloped)", 576));

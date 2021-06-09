@@ -78,7 +78,12 @@ public class PagesActivity extends AppCompatActivity {
 
         mPagerAdapter=new SlidePageAdapter(getSupportFragmentManager(),list,json);//appeler le constructure de slide page(fragment)
         mPager.setAdapter(mPagerAdapter);
-        mPager.setCurrentItem(9);//ici ouvrir la page qu'il faut on va utilisé le variable pos
+        if(pos<572&&pos>561){
+            mPager.setCurrentItem(571-pos);
+        }else{
+            mPager.setCurrentItem(9);//ici ouvrir la page qu'il faut on va utilisé le variable pos (571-pos)
+        }
+
 
     }
 

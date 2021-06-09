@@ -33,6 +33,8 @@ public class PageFragment4 extends Fragment {
         String pagetitre = bundle.getString("titre");
         final ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.page_4, container, false);
         TextView pageTitle=rootView.findViewById(R.id.surahName);
+        TextView pageNum=rootView.findViewById(R.id.pageNum);
+        pageNum.setText("565");
         final TextView surhText = rootView.findViewById(R.id.surahText);
         surhText.setText(json);
         pageTitle.setText(pagetitre);
