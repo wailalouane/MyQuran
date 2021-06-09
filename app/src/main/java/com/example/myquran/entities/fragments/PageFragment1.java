@@ -1,9 +1,13 @@
 package com.example.myquran.entities.fragments;
 
+import android.content.res.AssetManager;
 import android.graphics.Color;
+import android.graphics.Typeface;
+import android.graphics.fonts.Font;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
@@ -16,10 +20,12 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
 import com.example.myquran.MyQuranApp;
 import com.example.myquran.R;
+import com.example.myquran.entities.model.Functions;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -61,18 +67,11 @@ public class PageFragment1 extends Fragment {
         //hado les Strig pour les affichier tjr dans la page
         subStringList.add("سورة الملك");
         subStringList.add("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ");
-        subStringList.add("(1)");
-        subStringList.add("(2)");
-        subStringList.add("(3)");
-        subStringList.add("(4)");
-        subStringList.add("(5)");
-        subStringList.add("(6)");
-        subStringList.add("(7)");
-        subStringList.add("(8)");
-        subStringList.add("(9)");
-        subStringList.add("(10)");
-        subStringList.add("(11)");
-        subStringList.add("(12)");
+        for (int i=1;i<13;i++){
+        subStringList.add(Functions.ChangetoArabic(i));
+
+        }
+
 
         final String fullText=surhText.getText().toString();//all the page text
 
@@ -100,7 +99,7 @@ public class PageFragment1 extends Fragment {
 
 
                 cptShow=0;
-                surhText.setText(fullSpanneble);
+               surhText.setText(fullSpanneble);
 
                 ((MyQuranApp) getActivity().getApplication()).setSurahText(surhText);
 
@@ -157,8 +156,7 @@ public class PageFragment1 extends Fragment {
 
 
 
-
-                surhText.setText(fullSpanneble);
+                               surhText.setText(fullSpanneble);
 
                 ((MyQuranApp) getActivity().getApplication()).setSurahText(surhText);
             }

@@ -8,6 +8,7 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentStatePagerAdapter;
 
 import com.example.myquran.entities.model.AyahModel;
+import com.example.myquran.entities.model.Functions;
 import com.example.myquran.entities.model.PageModel;
 
 import org.json.JSONArray;
@@ -34,6 +35,7 @@ class SlidePageAdapter extends FragmentStatePagerAdapter {
     }
 
 
+
     @NonNull
     @Override
     public Fragment getItem(int position) {
@@ -48,6 +50,7 @@ class SlidePageAdapter extends FragmentStatePagerAdapter {
         return mFragmentList.get(position);
 
     }
+
 
 
     public void getPage(int pos){
@@ -78,11 +81,12 @@ class SlidePageAdapter extends FragmentStatePagerAdapter {
                     if(page==ayaArray.getJSONObject(index).getInt("page")){
                         if(ayaObj.getInt("numberInSurah")==1){
                             ayaList.add(new AyahModel(0,surahName+"\n",0,ayaObj.getInt("juz"),ayaObj.getInt("page"),false,surahName));
-                            ayahText.add("\n"+surahName+"\n");
+                           // ayahText.add("R"+"\n");
+                             ayahText.add(surahName+"\n");
                         }
                         text=text+ayaArray.getJSONObject(index).getString("text")+"("+ayaArray.getJSONObject(index).getInt("numberInSurah")+") ";
 
-                        ayahText.add(ayaObj.getString("text")+"("+ayaObj.getInt("numberInSurah")+")");
+                        ayahText.add(ayaObj.getString("text")+ Functions.ChangetoArabic(ayaObj.getInt("numberInSurah")));
 
                     }
                     index++;
