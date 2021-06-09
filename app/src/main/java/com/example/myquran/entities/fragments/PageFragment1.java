@@ -43,6 +43,8 @@ public class PageFragment1 extends Fragment {
         final ViewGroup rootView =(ViewGroup)inflater.inflate(R.layout.page_1,container,false);
 
         TextView pageTitle=rootView.findViewById(R.id.surahName);
+        TextView pageNum=rootView.findViewById(R.id.pageNum);
+        pageNum.setText("562");
         final TextView surhText = rootView.findViewById(R.id.surahText);
         ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
         ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih

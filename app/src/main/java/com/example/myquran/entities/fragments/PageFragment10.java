@@ -36,6 +36,8 @@ public class PageFragment10 extends Fragment {
         surhText.setText(json);
         pageTitle.setText(pagetitre);
 
+        TextView pageNum=rootView.findViewById(R.id.pageNum);
+        pageNum.setText("571");
         ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
         ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
 
