@@ -28,6 +28,7 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 
+
 public class PageFragment2 extends Fragment {
     int cptShow=2;
     String json;
