@@ -80,6 +80,7 @@ public class PagesActivity extends AppCompatActivity {
         mPager.setAdapter(mPagerAdapter);
         if(pos<572&&pos>561){
             mPager.setCurrentItem(571-pos);
+
         }else{
             mPager.setCurrentItem(9);//ici ouvrir la page qu'il faut on va utilisé le variable pos (571-pos)
         }
