@@ -9,7 +9,11 @@ import android.text.Html;
 import android.text.SpannableString;
 import android.text.SpannableStringBuilder;
 import android.text.Spanned;
+import android.text.style.BackgroundColorSpan;
+import android.text.style.DrawableMarginSpan;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,6 +27,7 @@ import androidx.annotation.Nullable;
 import androidx.core.content.res.ResourcesCompat;
 import androidx.fragment.app.Fragment;
 
+import com.example.myquran.MyDynamicDrawableSpan;
 import com.example.myquran.MyQuranApp;
 import com.example.myquran.R;
 import com.example.myquran.entities.model.Functions;
@@ -33,6 +38,9 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static com.example.myquran.R.drawable.rectangle;
+import static com.example.myquran.R.drawable.shape;
 
 public class PageFragment1 extends Fragment {
 
@@ -54,8 +62,22 @@ public class PageFragment1 extends Fragment {
         final TextView surhText = rootView.findViewById(R.id.surahText);
         ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
         ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
+        int BissmilahPos = json.indexOf("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم");
 
-        surhText.setText(json);
+        SpannableString s1= new SpannableString(json);
+        s1.setSpan(new RelativeSizeSpan(1.4f),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s1.setSpan(new ForegroundColorSpan(Color.BLACK),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        BissmilahPos = json.indexOf("سورة الملك");
+        int x = json.indexOf("\n",BissmilahPos);
+
+        Typeface myTypeface = Typeface.create(ResourcesCompat.getFont(getContext(),R.font.surahs),
+                Typeface.BOLD);
+
+        s1.setSpan(new StyleSpan(Typeface.BOLD),BissmilahPos,x,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s1.setSpan(new RelativeSizeSpan(1.4f),BissmilahPos,x,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s1.setSpan(new ForegroundColorSpan(Color.BLACK),BissmilahPos,x,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        surhText.setText(s1);
        /* surhText.setText(Html.fromHtml(
                 json
         ));*/
@@ -88,9 +110,17 @@ public class PageFragment1 extends Fragment {
                 fullSpanneble.setSpan(fcsWhite,0,fullSpanneble.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);//hada bach nkhebi kolch w naffichi ghir wach lazem
 
                 for (int i = 0; i <subStringList.size() ; i++) {
+                    if (i==0){
+
+                    }
                     ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                     int startIndex =fullText.indexOf(subStringList.get(i));
                     fullSpanneble.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    fullSpanneble.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    if (i<2)
+                    fullSpanneble.setSpan(new RelativeSizeSpan(1.4f),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    if (i==0)
+                    fullSpanneble.setSpan(new StyleSpan(Typeface.BOLD),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
 
 

@@ -9,52 +9,58 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="45dp"
         android:layout_marginBottom="45dp"
+        android:background="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/white"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout4"
+        app:layout_constraintVertical_bias="1.0"
+        android:layout_marginTop="5dp">
 
         >
+
 
         <TextView
-            android:textAlignment="center"
+            android:id="@+id/surahText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:lineSpacingExtra="10dp"
+            android:background="@drawable/rectangle"
+            android:fontFamily="@font/amiri_bold"
             android:text="surah text"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            android:textAlignment="center"
             android:textColor="@color/black"
-            android:id="@+id/surahText"
             android:textIsSelectable="true"
-            />
+            android:textSize="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
         android:layout_height="45dp"
+        android:background="@color/greenBackground"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/greenBackground"
 
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
-            android:textAlignment="center"
+            android:id="@+id/surahName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:text="surah name"
+            android:textAlignment="center"
             android:textColor="@color/white"
-            android:id="@+id/surahName"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -77,10 +83,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="24dp"
+            android:background="@color/greenBackground"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            android:background="@color/greenBackground"
             app:srcCompat="@drawable/ic_show" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
