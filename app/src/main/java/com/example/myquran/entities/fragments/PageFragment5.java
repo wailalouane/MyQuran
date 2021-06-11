@@ -52,7 +52,7 @@ public class PageFragment5 extends Fragment {
         for (int i :Functions.GetPosAyah(json)){
             s1.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
-        surhText.setText(s1);;
+        surhText.setText(s1);
         pageTitle.setText(pagetitre);
 
         ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
