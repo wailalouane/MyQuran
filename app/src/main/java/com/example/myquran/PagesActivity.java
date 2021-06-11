@@ -9,7 +9,9 @@ import androidx.viewpager.widget.ViewPager;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
+import com.example.myquran.connectionbd.DataBaseHelper;
 import com.example.myquran.entities.fragments.PageFragment1;
 import com.example.myquran.entities.fragments.PageFragment10;
 import com.example.myquran.entities.fragments.PageFragment2;
@@ -20,6 +22,7 @@ import com.example.myquran.entities.fragments.PageFragment6;
 import com.example.myquran.entities.fragments.PageFragment7;
 import com.example.myquran.entities.fragments.PageFragment8;
 import com.example.myquran.entities.fragments.PageFragment9;
+import com.example.myquran.entities.model.HistoriqueModel;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -34,7 +37,7 @@ public class PagesActivity extends AppCompatActivity {
  private ViewPager mPager;
   private PagerAdapter mPagerAdapter;
 
-
+    List<Fragment> list =new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,14 +53,46 @@ public class PagesActivity extends AppCompatActivity {
 
 
     }
+    @Override
+    public void onBackPressed(){
+        int x=mPager.getCurrentItem();
+        DataBaseHelper dataBaseHelper=new DataBaseHelper(PagesActivity.this);
 
+        String surahName="";
+         switch (x){
+             case 9: case 8:
+                 surahName="سورة الملك";
+                 break;
+             case 7: case 6:
+                 surahName= "سورة القلم";
+                 break;
+             case 5: case 4:
+                 surahName="سورة الحاقة";
+                 break;
+             case 3 : case 2:
+                 surahName="سورة المعارج";
+                 break;
+             case 1: case 0:
+                 surahName="سورة نوح";
+                 break;
+
+         }
+        x=571-x;//x now is the current page when we press back button
+        HistoriqueModel historiqueModel=new HistoriqueModel(surahName,x);
+        boolean added = dataBaseHelper.addHistorique(historiqueModel);
+        Toast.makeText(PagesActivity.this,"added item"+added,Toast.LENGTH_SHORT).show();
+      //  Toast.makeText(this,surahName+x,Toast.LENGTH_SHORT).show();
+
+
+        super.onBackPressed();
+    }
 
 
     public void lesFragment(int pos){
 
 
         // la liste des fragment
-        List<Fragment> list =new ArrayList<>();
+
         list.add(new PageFragment1());
         list.add(new PageFragment2());
         list.add(new PageFragment3());
