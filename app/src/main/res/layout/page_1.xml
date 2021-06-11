@@ -27,7 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="50dp"
-            android:lineSpacingExtra="10dp"
+            android:lineSpacingExtra="8dp"
             android:background="@drawable/rectangle"
             android:fontFamily="@font/amiri_bold"
             android:text="surah text"
