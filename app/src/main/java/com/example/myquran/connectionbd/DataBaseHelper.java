@@ -2,12 +2,16 @@ package com.example.myquran.connectionbd;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import androidx.annotation.Nullable;
 
 import com.example.myquran.entities.model.HistoriqueModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataBaseHelper extends SQLiteOpenHelper {
 
@@ -43,5 +47,37 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             return true;
         }
 
+    }
+
+    public boolean deleteHist(HistoriqueModel historiqueModel){
+        SQLiteDatabase sqLiteDatabase =this.getWritableDatabase();
+        String query="DELETE FROM "+HISTORIQUE+" WHERE "+SURAH_PAGE+" = "+historiqueModel.getSurahPage();
+        Cursor cursor= sqLiteDatabase.rawQuery(query,null);
+        if(cursor.moveToFirst()){
+        return true;
+            } else {
+        return false;
+}
+    }
+
+
+    public List<HistoriqueModel> getAllHistorique(){
+        List<HistoriqueModel> returnList=new ArrayList<>();
+        String sqlStatement="SELECT * FROM "+HISTORIQUE;
+        SQLiteDatabase db =this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(sqlStatement,null);
+        if(cursor.moveToFirst()){
+            do{
+                int idHistorique=cursor.getInt(0);
+                String surahName=cursor.getString(1);
+                int surahPage=cursor.getInt(2);
+                HistoriqueModel historiqueModel=new HistoriqueModel(surahName,surahPage,idHistorique);
+                returnList.add(historiqueModel);
+            }while(cursor.moveToNext());
+        }else{
+            //nothing
+        }
+
+        return returnList;
     }
 }

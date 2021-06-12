@@ -83,8 +83,11 @@ public class PagesActivity extends AppCompatActivity {
         Toast.makeText(PagesActivity.this,"added item"+added,Toast.LENGTH_SHORT).show();
       //  Toast.makeText(this,surahName+x,Toast.LENGTH_SHORT).show();
 
+        Intent intent =new Intent(this,HomeActivity.class);
+        startActivity(intent);
 
-        super.onBackPressed();
+
+        /*super.onBackPressed();*/
     }
 
 

@@ -9,18 +9,22 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.myquran.entities.model.HistoriqueModel;
 import com.example.myquran.entities.model.SurahModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
 class RecycleViewHistAdapter extends RecyclerView.Adapter<RecycleViewHistAdapter.MyViewHolder> {
-    List<SurahModel> historiqueList;
+    List<HistoriqueModel> historiqueList;
     Context mContext;
+    private OnHistListener mOnHistListener;
 
-    public RecycleViewHistAdapter(ArrayList<SurahModel> surahListHis,Context context) {
+
+    public RecycleViewHistAdapter(ArrayList<HistoriqueModel> surahListHis,Context context,OnHistListener onHistListener) {
         this.historiqueList=surahListHis;
         this.mContext=context;
+        this.mOnHistListener=onHistListener;
 
     }
 
@@ -28,7 +32,7 @@ class RecycleViewHistAdapter extends RecyclerView.Adapter<RecycleViewHistAdapter
     @Override
     public RecycleViewHistAdapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.historique_element,parent,false);
-        MyViewHolder holder=new MyViewHolder(view);
+        MyViewHolder holder=new MyViewHolder(view,mOnHistListener);
 
 
 
@@ -39,8 +43,8 @@ class RecycleViewHistAdapter extends RecyclerView.Adapter<RecycleViewHistAdapter
 
     @Override
     public void onBindViewHolder(@NonNull RecycleViewHistAdapter.MyViewHolder holder, int position) {
-        holder.surahname.setText(historiqueList.get(position).getNameSurahArabe());
-        holder.pageNum.setText(" : "+ String.valueOf(historiqueList.get(position).getStartSurahPage()));
+        holder.surahname.setText(historiqueList.get(position).getSurahName());
+        holder.pageNum.setText(String.valueOf(historiqueList.get(position).getSurahPage())+" : ");
     }
 
     @Override
@@ -48,17 +52,27 @@ class RecycleViewHistAdapter extends RecyclerView.Adapter<RecycleViewHistAdapter
         return historiqueList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder{
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         TextView surahname;
         TextView pageNum;
+        OnHistListener mOnHistListener;
 
-
-        public MyViewHolder(@NonNull View itemView) {
+        public MyViewHolder(@NonNull View itemView,OnHistListener onHistListener) {
             super(itemView);
             surahname=itemView.findViewById(R.id.surahNameHis);
             pageNum=itemView.findViewById(R.id.pageNumHis);
-
+            this.mOnHistListener=onHistListener;
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            mOnHistListener.onHistClick(getAdapterPosition());
+        }
+    }
+
+    public interface OnHistListener{
+        void onHistClick(int position);
     }
 
 }

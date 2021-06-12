@@ -11,12 +11,16 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.example.myquran.connectionbd.DataBaseHelper;
 import com.example.myquran.entities.list.SurahList;
+import com.example.myquran.entities.model.HistoriqueModel;
 import com.example.myquran.entities.model.SurahModel;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
 
-public class HomeActivity extends AppCompatActivity implements RecycleViewAdapter.OnSurahListener {
+public class HomeActivity extends AppCompatActivity implements RecycleViewAdapter.OnSurahListener, RecycleViewHistAdapter.OnHistListener {
 
 
     //surah list
@@ -34,7 +38,7 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
 
     //historique list
     private RecyclerView mRecyclerViewHis;
-    ArrayList<SurahModel> surahListHis=new ArrayList<>();
+    ArrayList<HistoriqueModel> surahListHis=new ArrayList<>();
 
 
 
@@ -75,17 +79,20 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
 
     public void historiqueList(){
 
-        surahListHis.add(new SurahModel(7, "الأعراف", "Al-A'raf (The Heights)", 151));
+        /*surahListHis.add(new SurahModel(7, "الأعراف", "Al-A'raf (The Heights)", 151));
         surahListHis.add(new SurahModel(30, "الروم", "Ar-Rum (The Romans)", 405));
         surahListHis.add(new SurahModel(7, "الأعراف", "Al-A'raf (The Heights)", 151));
         surahListHis.add(new SurahModel(30, "الروم", "Ar-Rum (The Romans)", 405));
         surahListHis.add(new SurahModel(7, "الأعراف", "Al-A'raf (The Heights)", 151));
         surahListHis.add(new SurahModel(30, "الروم", "Ar-Rum (The Romans)", 405));
         surahListHis.add(new SurahModel(7, "الأعراف", "Al-A'raf (The Heights)", 151));
-        surahListHis.add(new SurahModel(30, "الروم", "Ar-Rum (The Romans)", 405));
+        surahListHis.add(new SurahModel(30, "الروم", "Ar-Rum (The Romans)", 405));*/
 
+        DataBaseHelper dataBaseHelper=new DataBaseHelper(HomeActivity.this);
 
+        surahListHis= (ArrayList<HistoriqueModel>) dataBaseHelper.getAllHistorique();
 
+        Collections.reverse(surahListHis);
 
 
         mRecyclerViewHis=(RecyclerView) findViewById(R.id.historique);
@@ -95,7 +102,7 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
         LinearLayoutManager layoutManager
                 = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerViewHis.setLayoutManager(layoutManager);
-        mAdapter =new RecycleViewHistAdapter(surahListHis,HomeActivity.this);
+        mAdapter =new RecycleViewHistAdapter(surahListHis,HomeActivity.this,this);
         mRecyclerViewHis.setAdapter(mAdapter);
     }
 
@@ -121,5 +128,15 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
 
         }
 
+    }
+
+    @Override
+    public void onHistClick(int position) {
+        HistoriqueModel historiqueModel =surahListHis.get(position);
+        Intent intent =new Intent(this,PagesActivity.class);
+        intent.putExtra("position",historiqueModel.getSurahPage());
+        DataBaseHelper dataBaseHelper=new DataBaseHelper(HomeActivity.this);
+        dataBaseHelper.deleteHist(historiqueModel);
+        startActivity(intent);
     }
 }
