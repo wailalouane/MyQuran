@@ -129,7 +129,7 @@ public class PageFragment8 extends Fragment {
                         for (int i = 0; i <subStringList.size()-1 ; i++) {
                             ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                             int startIndex =fullText.indexOf(subStringList.get(i));
-                            fullSpanneble.setSpan(fcsblack,startIndex-10,startIndex+subStringList.get(i).length()+15, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            fullSpanneble.setSpan(fcsblack,startIndex-8,startIndex+subStringList.get(i).length()+15, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                         }
                         ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
