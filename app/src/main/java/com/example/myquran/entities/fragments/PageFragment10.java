@@ -1,10 +1,12 @@
 package com.example.myquran.entities.fragments;
 
 import android.graphics.Color;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.myquran.MyQuranApp;
 import com.example.myquran.R;
+import com.example.myquran.entities.model.Functions;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +36,11 @@ public class PageFragment10 extends Fragment {
         final ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.page_10, container, false);
         TextView pageTitle=rootView.findViewById(R.id.surahName);
         final TextView surhText = rootView.findViewById(R.id.surahText);
-        surhText.setText(json);
+        SpannableString s1= new SpannableString(json);
+        for (int i : Functions.GetPosAyah(json)){
+            s1.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        }
+        surhText.setText(s1);
         pageTitle.setText(pagetitre);
 
         TextView pageNum=rootView.findViewById(R.id.pageNum);
@@ -46,24 +53,11 @@ public class PageFragment10 extends Fragment {
         final ForegroundColorSpan fcsWhite=new ForegroundColorSpan(Color.WHITE);
         final ForegroundColorSpan fcsBlack=new ForegroundColorSpan(Color.BLACK);
 
-        subStringList.add("(11)");
-        subStringList.add("(12)");
-        subStringList.add("(13)");
-        subStringList.add("(14)");
-        subStringList.add("(15)");
-        subStringList.add("(16)");
-        subStringList.add("(17)");
-        subStringList.add("(18)");
-        subStringList.add("(19)");
-        subStringList.add("(20)");
-        subStringList.add("(21)");
-        subStringList.add("(22)");
-        subStringList.add("(23)");
-        subStringList.add("(24)");
-        subStringList.add("(25)");
-        subStringList.add("(26)");
-        subStringList.add("(27)");
-        subStringList.add("(28)");
+        for (int i=11;i<29;i++){
+            subStringList.add(Functions.ChangetoArabic(i));
+
+        }
+
 
 
 
@@ -82,7 +76,9 @@ public class PageFragment10 extends Fragment {
                 /*Toast.makeText(rootView.getContext(),"cliicked",Toast.LENGTH_SHORT).show();*/
 
                 fullSpanneble.setSpan(fcsWhite,0,fullSpanneble.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);//hada bach nkhebi kolch w naffichi ghir wach lazem
-
+                for (int i :Functions.GetPosAyah(json)){
+                    fullSpanneble.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                }
                 for (int i = 0; i <subStringList.size() ; i++) {
                     ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                     int startIndex =fullText.indexOf(subStringList.get(i));
@@ -110,8 +106,9 @@ public class PageFragment10 extends Fragment {
                 SpannableString fullSpanneble=new SpannableString(fullText);
                 //   cptShow=2;
                 fullSpanneble.setSpan(fcsWhite,0,fullSpanneble.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-
+                for (int i :Functions.GetPosAyah(json)){
+                    fullSpanneble.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                }
                 switch (cptShow){
 
                     case 0:
@@ -132,23 +129,25 @@ public class PageFragment10 extends Fragment {
                         for (int i = 0; i <subStringList.size()-1 ; i++) {
                             ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                             int startIndex =fullText.indexOf(subStringList.get(i));
-                            fullSpanneble.setSpan(fcsblack,startIndex-10,startIndex+subStringList.get(i).length()+15, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            fullSpanneble.setSpan(fcsblack,startIndex-8,startIndex+subStringList.get(i).length()+15, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                         }
                         ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                         ForegroundColorSpan fcsblack2=new ForegroundColorSpan(Color.BLACK);
                         fullSpanneble.setSpan(fcsblack2,0,15,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         int startIndex =fullText.indexOf(subStringList.get(subStringList.size()-1));
-                        fullSpanneble.setSpan(fcsblack,startIndex-10,startIndex+subStringList.get(subStringList.size()-1).length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        fullSpanneble.setSpan(fcsblack,startIndex-10,startIndex+subStringList.get(subStringList.size()-1).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                         break;
                     case 2:
-                        fullSpanneble.setSpan(fcsBlack,0,fullSpanneble.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        fullSpanneble.setSpan(fcsBlack,0,fullSpanneble.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         Toast.makeText(rootView.getContext(),String.valueOf(cptShow),Toast.LENGTH_SHORT).show();
 
                         //     cptShow=0;
 
                 }
+
+
 
 
 
