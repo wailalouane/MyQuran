@@ -32,7 +32,7 @@ public class PageFragment10 extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         Bundle bundle = getArguments();
         json = bundle.getString("json");
-        String pagetitre = bundle.getString("titre");
+        String pagetitre ="سورة نوح";
         final ViewGroup rootView = (ViewGroup) inflater.inflate(R.layout.page_10, container, false);
         TextView pageTitle=rootView.findViewById(R.id.surahName);
         final TextView surhText = rootView.findViewById(R.id.surahText);

@@ -69,18 +69,13 @@ public class PageFragment1 extends Fragment {
         ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
         int BissmilahPos = json.indexOf("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم");
         SpannableString s1= new SpannableString(json);
-        s1.setSpan(new RelativeSizeSpan(1.4f),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s1.setSpan(new RelativeSizeSpan(1.3f),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         s1.setSpan(new ForegroundColorSpan(Color.BLACK),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         BissmilahPos = json.indexOf("سورة الملك");
-        int x = json.indexOf("\n",BissmilahPos);
-        s1.setSpan(new RelativeSizeSpan(1.4f),BissmilahPos,BissmilahPos+x,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        s1.setSpan(new ForegroundColorSpan(Color.BLACK),BissmilahPos,BissmilahPos+x,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-        s1.setSpan(new StyleSpan(Typeface.BOLD),BissmilahPos,BissmilahPos+x,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
-        Typeface myTypeface = Typeface.create(ResourcesCompat.getFont(getContext(),R.font.surahs),
-                Typeface.BOLD);
-
-//        s1.setSpan(new ForegroundColorSpan(Color.BLACK),BissmilahPos,x,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s1.setSpan(new RelativeSizeSpan(1.7f),BissmilahPos,BissmilahPos+"سورة الملك".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s1.setSpan(new ForegroundColorSpan(Color.BLACK),BissmilahPos,BissmilahPos+"سورة الملك".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s1.setSpan(new StyleSpan(Typeface.BOLD),BissmilahPos,BissmilahPos+"سورة الملك".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         for (int i :Functions.GetPosAyah(json)){
             s1.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
@@ -123,10 +118,14 @@ public class PageFragment1 extends Fragment {
                     int startIndex =fullText.indexOf(subStringList.get(i));
                     fullSpannable.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     fullSpannable.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    if (i<2)
-                    fullSpannable.setSpan(new RelativeSizeSpan(1.4f),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    if (i==0)
-                    fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    if (i==1)
+                    fullSpannable.setSpan(new RelativeSizeSpan(1.3f),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    if (i==0) {
+                        fullSpannable.setSpan(new RelativeSizeSpan(1.7f),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                        fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                    }
                 }
 
 
@@ -152,6 +151,7 @@ public class PageFragment1 extends Fragment {
                 fullSpannable.setSpan(fcsWhite,0,fullSpannable.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 for (int i :Functions.GetPosAyah(json)){
                     fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
                 switch (cptShow){
 
@@ -160,11 +160,19 @@ public class PageFragment1 extends Fragment {
                         for (int i = 0; i <subStringList.size()-1 ; i++) {
                             ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                             int startIndex =fullText.indexOf(subStringList.get(i));
-                            fullSpannable.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length()+10,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            if (i<2)
-                                fullSpannable.setSpan(new RelativeSizeSpan(1.4f),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                            if (i==0)
+                            fullSpannable.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                if (i==1) {// bissmilah
+                                    fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK), startIndex + 39, Functions.GetIndexOfFirstWord(json, startIndex + 39), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                    fullSpannable.setSpan(new RelativeSizeSpan(1.3f), startIndex, startIndex + subStringList.get(i).length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                }
+                               if (i>1)
+                                fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),startIndex+4,Functions.GetIndexOfFirstWord(json,startIndex+5),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+
+                            if (i==0){ // surah name
+                                fullSpannable.setSpan(new RelativeSizeSpan(1.7f),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            }
                         }
                         ForegroundColorSpan fcsblack1=new ForegroundColorSpan(Color.BLACK);
                         int startIndex1 =fullText.indexOf(subStringList.get(subStringList.size()-1));//nafiichi numero laakher
@@ -176,23 +184,36 @@ public class PageFragment1 extends Fragment {
                         for (int i = 1; i <subStringList.size()-1 ; i++) {
                             ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                             int startIndex =fullText.indexOf(subStringList.get(i));
-                            fullSpannable.setSpan(fcsblack,startIndex-10,startIndex+subStringList.get(i).length()+15,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
+                            if (i==1){
+
+                                fullSpannable.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),startIndex+39,Functions.GetIndexOfSecondWord(json,startIndex+39),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         }
+                            if (i==0){ // surah name
+                                fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),0,15,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                fullSpannable.setSpan(new RelativeSizeSpan(1.7f),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            }
+                            if (i>1)
+                                fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),startIndex+4,Functions.GetIndexOfSecondWord(json,startIndex+4),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),Functions.GetIndexOfLastWord(json,startIndex),startIndex,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        }
+
                         ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                         ForegroundColorSpan fcsblack2=new ForegroundColorSpan(Color.BLACK);
-                        fullSpannable.setSpan(fcsblack2,0,15,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                        fullSpannable.setSpan(new RelativeSizeSpan(1.4f),0,12,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);// hadi ta3 bash nzid l ism sourah f size
-                        fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),0,12,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);// dert l bold l ism sourah
-                        fullSpannable.setSpan(new RelativeSizeSpan(1.4f),12,50,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        fullSpannable.setSpan(fcsblack2,0,10,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                     fullSpannable.setSpan(new RelativeSizeSpan(1.7f),0,10,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);// hadi ta3 bash nzid l ism sourah f size
+                        fullSpannable.setSpan(new RelativeSizeSpan(1.3f),12,50,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);// hadi ta3 bash nzid l ism sourah f size
+                      fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),0,10,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);// dert l bold l ism sourah
                         int startIndex =fullText.indexOf(subStringList.get(subStringList.size()-1));
                         fullSpannable.setSpan(fcsblack,startIndex-10,startIndex+subStringList.get(subStringList.size()-1).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                         break;
                     case 2:
-                        fullSpannable.setSpan(new RelativeSizeSpan(1.4f),0,12,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);// hadi ta3 bash nzid l ism sourah f size
-                        fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),0,12,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);// dert l bold l ism sourah
-                        fullSpannable.setSpan(new RelativeSizeSpan(1.4f),12,50,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        fullSpannable.setSpan(new RelativeSizeSpan(1.7f),0,10,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);// hadi ta3 bash nzid l ism sourah f size
+                        fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),0,10,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);// dert l bold l ism sourah
+                        fullSpannable.setSpan(new RelativeSizeSpan(1.3f),10,50,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         fullSpannable.setSpan(fcsBlack,0,fullSpannable.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         Toast.makeText(rootView.getContext(),String.valueOf(cptShow),Toast.LENGTH_SHORT).show();
 

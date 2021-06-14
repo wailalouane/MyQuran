@@ -18,5 +18,33 @@ public class Functions {
         return arrayList;
 
     }
+    public static int GetIndexOfFirstWord(String s,int PositionOfAyahSymbol){
+        char[] arrayList = s.toCharArray();
+        for (int i =PositionOfAyahSymbol;i<s.length();i++){
+
+
+
+                if (arrayList[i] ==' ')
+                    return i;
+            }
+
+
+
+        return -1;
+    }
+    public  static int GetIndexOfSecondWord(String s,int PositionOfAyahSymbol){
+
+
+        return GetIndexOfFirstWord(s,GetIndexOfFirstWord(s,PositionOfAyahSymbol)+1);
+    }
+    public static int GetIndexOfLastWord(String s ,int PositionOfAyahSymbol){
+        char[] arrayList = s.toCharArray();
+        int  pos = 0;
+        for (int i =PositionOfAyahSymbol;i>0;i--){
+            if (arrayList[i]==' ')
+                return i;
+        }
+                return -1;
+    }
 }
 
