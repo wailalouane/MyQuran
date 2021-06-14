@@ -195,7 +195,6 @@ public class PageFragment1 extends Fragment {
                                 fullSpannable.setSpan(new RelativeSizeSpan(1.7f),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             }
-                            if (i>1)
                                 fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),startIndex+4,Functions.GetIndexOfSecondWord(json,startIndex+4),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),Functions.GetIndexOfLastWord(json,startIndex),startIndex,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         }

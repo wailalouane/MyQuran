@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.text.style.RelativeSizeSpan;
 import android.text.style.StyleSpan;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -103,44 +104,48 @@ public class PageFragment2 extends Fragment {
             @Override
             public void onClick(View v) {//show btn
                 String fullText=surhText.getText().toString();
-                SpannableString fullSpanneble=new SpannableString(fullText);
+                SpannableString fullSpannable=new SpannableString(fullText);
                 //   cptShow=2;
-                fullSpanneble.setSpan(fcsWhite,0,fullSpanneble.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                fullSpannable.setSpan(fcsWhite,0,fullSpannable.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 for (int i :Functions.GetPosAyah(json)){
-                    fullSpanneble.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
                 switch (cptShow){
 
-                    case 0:
+                    case 0://  showing the first word
                         cptShow++;
                         for (int i = 0; i <subStringList.size()-1 ; i++) {
                             ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                             int startIndex =fullText.indexOf(subStringList.get(i));
-                            fullSpanneble.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length()+10,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            fullSpannable.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),startIndex+4,Functions.GetIndexOfFirstWord(json,startIndex+5),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                         }
                         ForegroundColorSpan fcsblack1=new ForegroundColorSpan(Color.BLACK);
                         int startIndex1 =fullText.indexOf(subStringList.get(subStringList.size()-1));//nafiichi numero laakher
-                        fullSpanneble.setSpan(fcsblack1,startIndex1,startIndex1+subStringList.get(subStringList.size()-1).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        fullSpannable.setSpan(fcsblack1,startIndex1,startIndex1+subStringList.get(subStringList.size()-1).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                         break;
-                    case 1:
+                    case 1:// showing  2 first words and last word
                         cptShow++;
                         for (int i = 0; i <subStringList.size()-1 ; i++) {
                             ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                             int startIndex =fullText.indexOf(subStringList.get(i));
-                            fullSpanneble.setSpan(fcsblack,startIndex-10,startIndex+subStringList.get(i).length()+15, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            fullSpannable.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                            fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),startIndex+4,Functions.GetIndexOfSecondWord(json,startIndex+5),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                         }
+
                         ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                         ForegroundColorSpan fcsblack2=new ForegroundColorSpan(Color.BLACK);
-                        fullSpanneble.setSpan(fcsblack2,0,15,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        fullSpannable.setSpan(fcsblack2,0,Functions.GetIndexOfSecondWord(json,0),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         int startIndex =fullText.indexOf(subStringList.get(subStringList.size()-1));
-                        fullSpanneble.setSpan(fcsblack,startIndex-10,startIndex+subStringList.get(subStringList.size()-1).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        fullSpannable.setSpan(fcsblack,startIndex-10,startIndex+subStringList.get(subStringList.size()-1).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
                         break;
                     case 2:
-                        fullSpanneble.setSpan(fcsBlack,0,fullSpanneble.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        fullSpannable.setSpan(fcsBlack,0,fullSpannable.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         Toast.makeText(rootView.getContext(),String.valueOf(cptShow),Toast.LENGTH_SHORT).show();
 
                         //     cptShow=0;
@@ -151,7 +156,7 @@ public class PageFragment2 extends Fragment {
 
 
 
-                surhText.setText(fullSpanneble);
+                surhText.setText(fullSpannable);
 
 
             }
