@@ -161,7 +161,7 @@ public class PageFragment1 extends Fragment {
                             ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                             int startIndex =fullText.indexOf(subStringList.get(i));
                             fullSpannable.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                if (i==1) {// bissmilah
+                                if (i==1) {//  ayah after bissmilah
                                     fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK), startIndex + 39, Functions.GetIndexOfFirstWord(json, startIndex + 39), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                     fullSpannable.setSpan(new RelativeSizeSpan(1.3f), startIndex, startIndex + subStringList.get(i).length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 }
@@ -191,7 +191,7 @@ public class PageFragment1 extends Fragment {
                                 fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),startIndex+39,Functions.GetIndexOfSecondWord(json,startIndex+39),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         }
                             if (i==0){ // surah name
-                                fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),0,15,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),0,10,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 fullSpannable.setSpan(new RelativeSizeSpan(1.7f),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                                 fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             }
