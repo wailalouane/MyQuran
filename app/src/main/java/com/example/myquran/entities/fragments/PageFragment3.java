@@ -98,9 +98,6 @@ public class PageFragment3 extends Fragment {
                 for (int i :Functions.GetPosAyah(json)){
                     fullSpanneble.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
-                for (int i :Functions.GetPosAyah(json)){
-                    fullSpanneble.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                }
                 for (int i = 0; i <subStringList.size() ; i++) {
                     ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                     int startIndex =fullText.indexOf(subStringList.get(i));

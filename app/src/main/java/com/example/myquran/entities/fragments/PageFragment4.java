@@ -72,10 +72,8 @@ public class PageFragment4 extends Fragment {
                 /*String subString="سورة الملك";*/
                 /*Toast.makeText(rootView.getContext(),"cliicked",Toast.LENGTH_SHORT).show();*/
 
-                fullSpanneble.setSpan(fcsWhite,0,fullSpanneble.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);//hada bach nkhebi kolch w naffichi ghir wach lazem
                 for (int i :Functions.GetPosAyah(json)){
                     fullSpanneble.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                    fullSpanneble.setSpan(new ForegroundColorSpan(Color.BLACK),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
                 for (int i = 0; i <subStringList.size() ; i++) {
                     ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
