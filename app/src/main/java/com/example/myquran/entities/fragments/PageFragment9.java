@@ -40,7 +40,7 @@ public class PageFragment9 extends Fragment {
         final TextView surhText = rootView.findViewById(R.id.surahText);
         int BissmilahPos = json.indexOf("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم");
         SpannableString s1= new SpannableString(json);
-        s1.setSpan(new RelativeSizeSpan(1.45f),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        s1.setSpan(new RelativeSizeSpan(1.55f),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         s1.setSpan(new ForegroundColorSpan(Color.BLACK),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         BissmilahPos = json.indexOf("سورة نوح");
 
@@ -95,7 +95,7 @@ public class PageFragment9 extends Fragment {
                     fullSpanneble.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     fullSpanneble.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     if (i==6)
-                        fullSpanneble.setSpan(new RelativeSizeSpan(1.4f),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        fullSpanneble.setSpan(new RelativeSizeSpan(1.55f),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     if (i==5)
 
                         fullSpanneble.setSpan(new RelativeSizeSpan(1.9f),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -140,7 +140,7 @@ public class PageFragment9 extends Fragment {
                             fullSpanneble.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             if (i==6) {//  ayah after the bassmallah
                                 fullSpanneble.setSpan(new ForegroundColorSpan(Color.BLACK), startIndex+40 , Functions.GetIndexOfFirstWord(json, startIndex+44 ), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                fullSpanneble.setSpan(new RelativeSizeSpan(1.4f), startIndex, startIndex + subStringList.get(i).length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                fullSpanneble.setSpan(new RelativeSizeSpan(1.55f), startIndex, startIndex + subStringList.get(i).length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             }
                             if (i!=5&&i!=6)
                                 fullSpanneble.setSpan(new ForegroundColorSpan(Color.BLACK),startIndex+4,Functions.GetIndexOfFirstWord(json,startIndex+5),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -166,7 +166,7 @@ public class PageFragment9 extends Fragment {
                             fullSpanneble.setSpan(fcsblack,startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             if (i==6) {//  ayah after the bassmallah
                                 fullSpanneble.setSpan(new ForegroundColorSpan(Color.BLACK), startIndex+40 , Functions.GetIndexOfSecondWord(json, startIndex+44 ), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-                                fullSpanneble.setSpan(new RelativeSizeSpan(1.4f), startIndex, startIndex + subStringList.get(i).length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                                fullSpanneble.setSpan(new RelativeSizeSpan(1.55f), startIndex, startIndex + subStringList.get(i).length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                             }
                             if (i!=6&&i!=5)
                                 fullSpanneble.setSpan(new ForegroundColorSpan(Color.BLACK),startIndex+4,Functions.GetIndexOfSecondWord(json,startIndex+5),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
@@ -191,7 +191,7 @@ public class PageFragment9 extends Fragment {
                         fullSpanneble.setSpan(fcsBlack,0,fullSpanneble.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         Toast.makeText(rootView.getContext(),String.valueOf(cptShow),Toast.LENGTH_SHORT).show();
                         int BissmilahPos = json.indexOf("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم");
-                        fullSpanneble.setSpan(new RelativeSizeSpan(1.4f),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        fullSpanneble.setSpan(new RelativeSizeSpan(1.55f),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         fullSpanneble.setSpan(new ForegroundColorSpan(Color.BLACK),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         BissmilahPos = json.indexOf("سورة نوح");
 
