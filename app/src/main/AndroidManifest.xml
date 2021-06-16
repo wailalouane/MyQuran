@@ -3,14 +3,14 @@
     package="com.example.myquran">
 
     <application
+        android:name=".MyQuranApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        android:name="MyQuranApp">
-        <activity android:name=".PagesActivity"></activity>
+        android:theme="@style/AppTheme">
+        <activity android:name=".PagesActivity" />
         <activity android:name=".HomeActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
@@ -22,11 +22,12 @@
         <activity
             android:name=".ProcessTextActivity"
             android:label="Show Text"
-            android:theme="@android:style/Theme.NoDisplay"
-            >
+            android:theme="@android:style/Theme.NoDisplay">
             <intent-filter>
                 <action android:name="android.intent.action.PROCESS_TEXT" />
+
                 <category android:name="android.intent.category.DEFAULT" />
+
                 <data android:mimeType="text/plain" />
             </intent-filter>
         </activity>

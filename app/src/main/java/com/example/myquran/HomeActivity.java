@@ -1,20 +1,26 @@
 package com.example.myquran;
 
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.WindowManager;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.myquran.connectionbd.DataBaseHelper;
 import com.example.myquran.entities.list.SurahList;
 import com.example.myquran.entities.model.HistoriqueModel;
 import com.example.myquran.entities.model.SurahModel;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -27,6 +33,9 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
     private RecyclerView mRecyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager mLayoutManager;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private Toolbar toolbar;
 
     //liste to show
     SurahList SurahList = new SurahList();
@@ -46,6 +55,19 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+        /*------------------------------------ Side Menu -------------------------------*/
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+        toolbar = findViewById(R.id.layoutToolbar);
+        /*------------------------------------ toolbar -------------------------------*/
+        setSupportActionBar(toolbar);
+        /*------------------------------------ toolbar -------------------------------*/
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
+
+
+
 
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         historiqueList();
@@ -75,6 +97,16 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
                 recycleViewAdapter.getFilter().filter(newText); return false;
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+        else {
+            super.onBackPressed();
+        }
     }
 
     public void historiqueList(){
