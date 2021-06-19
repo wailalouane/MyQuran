@@ -8,7 +8,7 @@ public class PageModel {
     private String pageTitle;
     private String text;
     private int id;
-    int cpt;
+    private int cpt;
     ArrayList<AyahModel> onePageList=new ArrayList<>();
 
     //CONSTROCTORS
@@ -75,7 +75,13 @@ public class PageModel {
         this.id = id;
     }
 
+    public int getCpt() {
+        return cpt;
+    }
 
+    public void setCpt(int cpt) {
+        this.cpt = cpt;
+    }
 
     public void setOnePageList(ArrayList<AyahModel> onePageList) {
         this.onePageList = onePageList;
