@@ -19,7 +19,6 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.myquran.connectionbd.DataBaseHelper;
 import com.example.myquran.entities.list.SurahList;
 import com.example.myquran.entities.model.HistoriqueModel;
-import com.example.myquran.entities.model.PageModel;
 import com.example.myquran.entities.model.SurahModel;
 import com.google.android.material.navigation.NavigationView;
 
@@ -56,16 +55,7 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        /*------------------------------------ Side Menu -------------------------------*/
-        drawerLayout = findViewById(R.id.drawer_layout);
-        navigationView = findViewById(R.id.nav_view);
-        toolbar = findViewById(R.id.layoutToolbar);
-        /*------------------------------------ toolbar -------------------------------*/
-        setSupportActionBar(toolbar);
-        /*------------------------------------ toolbar -------------------------------*/
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this,drawerLayout,toolbar,R.string.navigation_drawer_open,R.string.navigation_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
-        toggle.syncState();
+
 
 
 
@@ -157,10 +147,6 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
 
             Toast.makeText(HomeActivity.this,surahList.get(position).getNameSurahArabe(),Toast.LENGTH_SHORT).show();
             /*Toast.makeText(HomeActivity.this,String.valueOf(position),Toast.LENGTH_SHORT).show();*/
-            DataBaseHelper dataBaseHelper=new DataBaseHelper(HomeActivity.this);
-            dataBaseHelper.addToMostRead(new PageModel(surahList.get(position).getNameSurahArabe(),surahList.get(position).getStartSurahPage(),0));
-
-
             startActivity(intent);
 
         }
