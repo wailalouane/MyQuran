@@ -6,7 +6,38 @@ import java.util.ArrayList;
 public class PageModel {
     private int pageNum;
     private String pageTitle;
+    private String text;
+    private int id;
+    int cpt;
+    ArrayList<AyahModel> onePageList=new ArrayList<>();
 
+    //CONSTROCTORS
+    public PageModel(int pageNum, String text, int id) {
+        this.pageNum = pageNum;
+        this.text = text;
+        this.id = id;
+    }
+    public PageModel(int pageNum, String pageTitle, ArrayList<AyahModel> onePageList) {
+        this.pageNum = pageNum;
+        this.pageTitle = pageTitle;
+        this.onePageList = onePageList;
+    }
+    public PageModel() {
+
+    }
+    public PageModel(int pageNum, int cpt) {
+        this.pageNum = pageNum;
+        this.cpt = cpt;
+    }
+
+    public PageModel(String surahName,int pageNum,int cpt){
+        this.pageTitle=surahName;
+        this.pageNum=pageNum;
+        this.cpt=cpt;
+    }
+
+
+    // GETTERS AND SETTERS
     public int getPageNum() {
         return pageNum;
     }
@@ -27,12 +58,35 @@ public class PageModel {
         return onePageList;
     }
 
+
+    public String getText() {
+        return text;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+
+
     public void setOnePageList(ArrayList<AyahModel> onePageList) {
         this.onePageList = onePageList;
     }
 
-    ArrayList<AyahModel> onePageList=new ArrayList<>();
 
+
+
+
+
+    //METHODES
     public void loadOnePage(int pageNum){
         String json;
 
@@ -54,12 +108,7 @@ public class PageModel {
         return textt.toString();
     }
 
-    public PageModel(int pageNum, String pageTitle, ArrayList<AyahModel> onePageList) {
-        this.pageNum = pageNum;
-        this.pageTitle = pageTitle;
-        this.onePageList = onePageList;
-    }
-    public PageModel() {
 
-    }
+
+
 }
