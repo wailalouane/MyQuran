@@ -1,0 +1,15 @@
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><resources>\r\n    <string name=\"app_name\">My Quran</string>\r\n    <string name=\"historique\">Historique :</string>\r\n    <string name=\"navigation_drawer_open\">Open Navigation drawer</string>\r\n    <string name=\"navigation_drawer_close\">Close Navigation drawer</string>\r\n</resources>\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision b528b0b66b2ef031a3de8293ee50f73df486d40d)
++++ app/src/main/res/values/strings.xml	(date 1624225449171)
+@@ -3,4 +3,5 @@
+     <string name="historique">Historique :</string>
+     <string name="navigation_drawer_open">Open Navigation drawer</string>
+     <string name="navigation_drawer_close">Close Navigation drawer</string>
++    <string name="surah_name">اسم السورة</string>
+ </resources>
