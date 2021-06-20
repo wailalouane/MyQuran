@@ -7,18 +7,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.ImageView;
 
-public class MainActivity extends AppCompatActivity {
-
-    private static int SPLACH_TIME_OUT = 4000;
-
-    private String surah_text;
-
-
+public class Menu_activity extends AppCompatActivity {
+    ImageView exit_image;
+    ImageView Surah_list_image;
     public static void setWindowFlag(Activity activity, final int bits, boolean on) {
 
         Window win = activity.getWindow();
@@ -33,18 +29,23 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_main);
 
-
-        new Handler().postDelayed(new Runnable() {
+        setContentView(R.layout.activity_menu);
+        Surah_list_image = findViewById(R.id.surah_list_image);
+        Surah_list_image.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                Intent homeIntent = new Intent(MainActivity.this, HomeActivity.class);
-                startActivity(homeIntent);
+            public void onClick(View view) {
+                startActivity(new Intent(Menu_activity.this,HomeActivity.class));
+
+            }
+        });
+        exit_image=findViewById(R.id.exit_image);
+        exit_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
                 finish();
             }
-        },SPLACH_TIME_OUT);
+        });
         if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {
             setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, true);
         }
@@ -56,6 +57,5 @@ public class MainActivity extends AppCompatActivity {
             setWindowFlag(this, WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS, true);
             getWindow().setStatusBarColor(Color.TRANSPARENT);
         }
-
     }
 }

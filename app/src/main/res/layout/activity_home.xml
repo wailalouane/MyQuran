@@ -19,81 +19,83 @@
         android:layout_gravity="start"/>
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteY="0dp">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/layoutToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/greenBackground"
-        >
-
-    </androidx.appcompat.widget.Toolbar>
-    <SearchView
-        android:id="@+id/search_bar"
-        app:queryHint="search surah name"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:autofillHints="search surah"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layoutToolbar">
-
-    </SearchView>
-    <androidx.appcompat.widget.LinearLayoutCompat
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:id="@+id/historique_layout"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/search_bar"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:orientation="horizontal"
-
-        >
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/historique"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="25dp"
-            android:textColor="@color/black"
-
-            />
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/historique"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-
-            android:orientation="horizontal"
-
-            />
+            android:layout_height="match_parent">
 
 
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/layoutToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/greenBackground"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    </androidx.appcompat.widget.LinearLayoutCompat>
+            </androidx.appcompat.widget.Toolbar>
+
+            <SearchView
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:autofillHints="search surah"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutToolbar"
+                app:queryHint="search surah name">
+
+            </SearchView>
 
 
-  
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/historique_layout"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/listSurah"
-        android:layout_width="409dp"
-        android:layout_height="558dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/historique_layout" />
+                android:orientation="horizontal"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="597dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="25dp"
+                    android:text="@string/historique"
+                    android:textColor="@color/black"
+
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/historique"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+
+                    android:orientation="horizontal"
+
+                    />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/listSurah"
+                android:layout_width="414dp"
+                android:layout_height="446dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/search_bar" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </ScrollView>
