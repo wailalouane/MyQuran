@@ -22,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import com.example.myquran.MyQuranApp;
 import com.example.myquran.R;
 import com.example.myquran.entities.model.Functions;
+import com.example.myquran.entities.model.StyleCallback;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -52,6 +53,7 @@ public class PageFragment2 extends Fragment {
             s1.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         surhText.setText(s1);
+        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText));
         pageTitle.setText(pagetitre);
 
         ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
