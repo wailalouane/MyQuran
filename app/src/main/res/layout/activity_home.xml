@@ -10,13 +10,7 @@
     tools:openDrawer="start"
 
     >
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:id="@+id/nav_view"
-        app:headerLayout="@layout/header"
-        app:menu="@menu/main_menu"
-        android:layout_gravity="start"/>
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
