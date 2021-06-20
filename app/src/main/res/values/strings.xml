@@ -3,5 +3,5 @@
     <string name="historique">Historique :</string>
     <string name="navigation_drawer_open">Open Navigation drawer</string>
     <string name="navigation_drawer_close">Close Navigation drawer</string>
-    <string name="surah_name">surah_name</string>
+    <string name="surah_name">اسم السورة</string>
 </resources>
