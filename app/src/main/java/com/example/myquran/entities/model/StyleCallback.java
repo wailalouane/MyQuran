@@ -21,6 +21,7 @@ import com.example.myquran.R;
 public class StyleCallback implements ActionMode.Callback {
     private TextView mTextView;
 
+
     public StyleCallback(TextView textView){
         this.mTextView=textView;
     }
