@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:title="Home"
+            android:icon="@drawable/home_icon">
+
+        </item>
+        <item
+            android:id="@+id/nav_list_surah"
+            android:title="ListSurah"
+            android:icon="@drawable/list_icon">
+
+        </item>
+        <item
+        android:id="@+id/Exit"
+        android:title="Exit"
+        android:icon="@drawable/ic_baseline_exit_to_app_24">
+
+        </item>
+    </group>
+
+    <group android:checkableBehavior="single">
+        <item
+             android:title="History"
+            android:icon="@drawable/history_icon"
+            android:id="@+id/nav_history">
+
+        </item>
+    </group>
+
+
+</menu>
