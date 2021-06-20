@@ -16,6 +16,7 @@ public class ProcessTextActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page_1);
 
+
         String selectedText = getIntent().getStringExtra(Intent.EXTRA_PROCESS_TEXT);
         final TextView surahText = findViewById(R.id.surahText);
 
