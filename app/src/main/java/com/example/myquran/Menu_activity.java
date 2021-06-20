@@ -15,6 +15,8 @@ import android.widget.ImageView;
 public class Menu_activity extends AppCompatActivity {
     ImageView exit_image;
     ImageView Surah_list_image;
+    ImageView problem_image;
+
     public static void setWindowFlag(Activity activity, final int bits, boolean on) {
 
         Window win = activity.getWindow();
@@ -44,6 +46,13 @@ public class Menu_activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 finish();
+            }
+        });
+        problem_image=findViewById(R.id.problem_image);
+        problem_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Menu_activity.this,HistoriqueActivity.class));
             }
         });
         if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {
