@@ -28,6 +28,7 @@ import java.util.List;
 
 public class PageFragment4 extends Fragment {
     String json;
+    final int numero=565;
     int cptShow=2;
     @Nullable
     @Override
@@ -46,7 +47,7 @@ public class PageFragment4 extends Fragment {
         }
         surhText.setText(s1);
         pageTitle.setText(pagetitre);
-        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText));
+        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText,numero));
         ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
         ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
 

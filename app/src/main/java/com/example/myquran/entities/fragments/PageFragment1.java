@@ -51,7 +51,7 @@ public class PageFragment1 extends Fragment {
 
     String json;
     int cptShow=2;
-
+    final int numero=562;
     @RequiresApi(api = Build.VERSION_CODES.P)
     @Nullable
     @Override
@@ -64,12 +64,12 @@ public class PageFragment1 extends Fragment {
 
         TextView pageTitle=rootView.findViewById(R.id.surahName);
         TextView pageNum=rootView.findViewById(R.id.pageNum);
-        pageNum.setText("562");
+        pageNum.setText(String.valueOf(numero));
         final TextView surhText = rootView.findViewById(R.id.surahText);
         ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
         ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
 
-        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText));
+        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText,numero));
         int BissmilahPos = json.indexOf("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم");
         SpannableString s1= new SpannableString(json);
         s1.setSpan(new RelativeSizeSpan(1.3f),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

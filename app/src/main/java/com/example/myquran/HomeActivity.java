@@ -24,6 +24,7 @@ import androidx.appcompat.widget.Toolbar;
 import com.example.myquran.connectionbd.DataBaseHelper;
 import com.example.myquran.entities.list.SurahList;
 import com.example.myquran.entities.model.HistoriqueModel;
+import com.example.myquran.entities.model.PageModel;
 import com.example.myquran.entities.model.SurahModel;
 import com.google.android.material.navigation.NavigationView;
 
@@ -173,6 +174,13 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
            /* intent.putExtra("la valeur","jooowez");*/
 
             Toast.makeText(HomeActivity.this,surahList.get(position).getNameSurahArabe(),Toast.LENGTH_SHORT).show();
+
+            PageModel pageModel=new PageModel();
+            pageModel.setPageTitle(surahList.get(position).getNameSurahArabe());
+            pageModel.setPageNum(surahList.get(position).getStartSurahPage());
+            DataBaseHelper dataBaseHelper=new DataBaseHelper(HomeActivity.this);
+            dataBaseHelper.addToMostRead(pageModel);
+
             /*Toast.makeText(HomeActivity.this,String.valueOf(position),Toast.LENGTH_SHORT).show();*/
             startActivity(intent);
 

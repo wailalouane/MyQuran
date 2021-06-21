@@ -31,7 +31,7 @@ public class PagesHistoriqueFragment extends Fragment {
         List<PageModel> pageModelList=new ArrayList<>();
         DataBaseHelper dataBaseHelper=new DataBaseHelper(rootView.getContext());
 
-        pageModelList=dataBaseHelper.getPagesCount();
+        pageModelList=dataBaseHelper.getPagesStatCount();
 
         RecyclerView recyclerView;
         RecyclerView.Adapter adapter;

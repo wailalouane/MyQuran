@@ -28,6 +28,7 @@ import java.util.List;
 
 public class PageFragment10 extends Fragment {
     String json;int cptShow=2;
+    final int numero=571;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -49,7 +50,7 @@ public class PageFragment10 extends Fragment {
         ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
         ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
 
-        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText));
+        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText,numero));
         final List<String> subStringList=new ArrayList<>();
         final ForegroundColorSpan fcsWhite=new ForegroundColorSpan(Color.WHITE);
         final ForegroundColorSpan fcsBlack=new ForegroundColorSpan(Color.BLACK);

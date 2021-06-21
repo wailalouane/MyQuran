@@ -37,6 +37,7 @@ import java.util.List;
 public class PageFragment2 extends Fragment {
     int cptShow=2;
     String json;
+    final int numero=563;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class PageFragment2 extends Fragment {
         }
         surhText.setText(s1);
         //select menu
-        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText));
+        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText,numero));
 
 
         pageTitle.setText(pagetitre);

@@ -36,6 +36,7 @@ public class PageFragment3 extends Fragment {
     private static final String TAG = "";
     String json;
     int cptShow=2;
+    final int numero=564;
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -54,7 +55,7 @@ public class PageFragment3 extends Fragment {
         s1.setSpan(new RelativeSizeSpan(1.5f),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         s1.setSpan(new ForegroundColorSpan(Color.BLACK),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         BissmilahPos = json.indexOf("سورة القلم");
-        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText));
+        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText,numero));
         s1.setSpan(new RelativeSizeSpan(1.9f),BissmilahPos,BissmilahPos+"سورة القلم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         s1.setSpan(new ForegroundColorSpan(Color.BLACK),BissmilahPos,BissmilahPos+"سورة القلم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         s1.setSpan(new StyleSpan(Typeface.BOLD),BissmilahPos,BissmilahPos+"سورة القلم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

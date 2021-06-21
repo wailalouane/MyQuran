@@ -52,7 +52,7 @@ public class Menu_activity extends AppCompatActivity {
         problem_image.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Menu_activity.this,HistoriqueActivity.class));
+                startActivity(new Intent(Menu_activity.this,StatsHisActivity.class));
             }
         });
         if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {

@@ -16,14 +16,18 @@ import android.view.MenuItem;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myquran.HomeActivity;
 import com.example.myquran.R;
+import com.example.myquran.connectionbd.DataBaseHelper;
 
 public class StyleCallback implements ActionMode.Callback {
     private TextView mTextView;
-
-    public StyleCallback(TextView textView){
+    private int page;
+    public StyleCallback(TextView textView,int page){
         this.mTextView=textView;
+        this.page=page;
     }
+    PageStatModel mPageStatModel=new PageStatModel();
     @Override
     public boolean onCreateActionMode(ActionMode mode, Menu menu) {
         Log.d("tag","onCreateActionMode");
@@ -55,6 +59,9 @@ public class StyleCallback implements ActionMode.Callback {
         switch (item.getItemId()){
             case R.id.voir:
                 fullText.setSpan(fcsCOLOR,start,end,SpannableString.SPAN_EXCLUSIVE_EXCLUSIVE);
+                mPageStatModel=new PageStatModel(start,end,page);
+                DataBaseHelper dataBaseHelper=new DataBaseHelper(mTextView.getContext());
+                dataBaseHelper.addPagesStatText(mPageStatModel);
 
                 mTextView.setText(fullText);
                 return true;
