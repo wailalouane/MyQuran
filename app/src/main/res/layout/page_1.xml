@@ -29,7 +29,7 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0">
+            app:layout_constraintVertical_bias="0.0">
 
 
             <TextView
@@ -54,12 +54,14 @@
 
 
             <TextView
+                android:background="@drawable/rechercher_shape"
                 android:layout_width="70dp"
                 android:layout_height="58dp"
                 android:layout_marginBottom="16dp"
-                android:text="اظهار"
-                android:gravity="center"
                 android:fontFamily="@font/othmani"
+                android:gravity="center"
+                android:textColor="@color/black"
+                android:text="اظهار"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/pageNum"
                 app:layout_constraintHorizontal_bias="0.459"
@@ -72,10 +74,10 @@
                 android:layout_width="56dp"
                 android:layout_height="37dp"
                 android:layout_marginBottom="28dp"
+                android:background="@drawable/rechercher_shape"
                 android:fontFamily="@font/omar_bold"
                 android:gravity="center"
                 android:text="00"
-                android:background="@drawable/rechercher_shape"
                 android:textColor="@color/black"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -100,6 +102,18 @@
                 app:layout_constraintStart_toStartOf="parent">
 
             </TextView>
+
+            <ImageButton
+                android:id="@+id/hideBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="76dp"
+                android:background="@color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.037"
+                app:srcCompat="@drawable/ic_hide" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
