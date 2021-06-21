@@ -71,6 +71,7 @@ public class PageFragment4 extends Fragment {
             @Override
             public void onClick(View v) {//when we click on hide brn
                 SpannableString fullSpanneble=new SpannableString(fullText);//SpannableString pour pouvez changez la couleur
+                fullSpanneble.setSpan(fcsWhite,0,fullText.length()-1,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 /*String subString="سورة الملك";*/
                 /*Toast.makeText(rootView.getContext(),"cliicked",Toast.LENGTH_SHORT).show();*/
 

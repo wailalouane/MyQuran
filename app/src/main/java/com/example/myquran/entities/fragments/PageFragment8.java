@@ -143,7 +143,7 @@ public class PageFragment8 extends Fragment {
 
                         ForegroundColorSpan fcsblack=new ForegroundColorSpan(Color.BLACK);
                         ForegroundColorSpan fcsblack2=new ForegroundColorSpan(Color.BLACK);
-                        fullSpanneble.setSpan(fcsblack2,0,Functions.GetIndexOfSecondWord(json,0),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                        fullSpanneble.setSpan(fcsblack2,0,Functions.GetIndexOfSecondWord(json,18),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                         int startIndex =fullText.indexOf(subStringList.get(subStringList.size()-1));
                         fullSpanneble.setSpan(fcsblack,Functions.GetIndexOfLastWord(json,startIndex),startIndex,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 

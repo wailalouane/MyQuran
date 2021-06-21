@@ -3,6 +3,8 @@
     <string name="historique">Historique :</string>
     <string name="navigation_drawer_open">Open Navigation drawer</string>
     <string name="navigation_drawer_close">Close Navigation drawer</string>
-    <string name="surah_name">اسم السورة</string>
-
+    <string name="surah_name">surah_name</string>
+    <string name="title_activity_his_stat">his_stat_activity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
 </resources>
