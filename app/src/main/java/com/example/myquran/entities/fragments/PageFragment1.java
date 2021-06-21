@@ -35,6 +35,7 @@ import com.example.myquran.MyDynamicDrawableSpan;
 import com.example.myquran.MyQuranApp;
 import com.example.myquran.R;
 import com.example.myquran.entities.model.Functions;
+import com.example.myquran.entities.model.StyleCallback;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -67,6 +68,8 @@ public class PageFragment1 extends Fragment {
         final TextView surhText = rootView.findViewById(R.id.surahText);
         ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
         ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
+
+        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText));
         int BissmilahPos = json.indexOf("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم");
         SpannableString s1= new SpannableString(json);
         s1.setSpan(new RelativeSizeSpan(1.3f),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

@@ -22,6 +22,7 @@ import androidx.fragment.app.Fragment;
 import com.example.myquran.MyQuranApp;
 import com.example.myquran.R;
 import com.example.myquran.entities.model.Functions;
+import com.example.myquran.entities.model.StyleCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,7 @@ public class PageFragment5 extends Fragment {
         s1.setSpan(new RelativeSizeSpan(1.5f),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         s1.setSpan(new ForegroundColorSpan(Color.BLACK),BissmilahPos,BissmilahPos+"بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         BissmilahPos = json.indexOf("سورة الحاقة");
-
+        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText));
         s1.setSpan(new RelativeSizeSpan(1.9f),BissmilahPos,BissmilahPos+"سورة الحاقة".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         s1.setSpan(new ForegroundColorSpan(Color.BLACK),BissmilahPos,BissmilahPos+"سورة الحاقة".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         s1.setSpan(new StyleSpan(Typeface.BOLD),BissmilahPos,BissmilahPos+"سورة الحاقة".length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

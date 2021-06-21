@@ -53,7 +53,10 @@ public class PageFragment2 extends Fragment {
             s1.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
         }
         surhText.setText(s1);
+        //select menu
         surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText));
+
+
         pageTitle.setText(pagetitre);
 
         ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih

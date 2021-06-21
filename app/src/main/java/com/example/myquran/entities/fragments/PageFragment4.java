@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 import com.example.myquran.MyQuranApp;
 import com.example.myquran.R;
 import com.example.myquran.entities.model.Functions;
+import com.example.myquran.entities.model.StyleCallback;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -45,7 +46,7 @@ public class PageFragment4 extends Fragment {
         }
         surhText.setText(s1);
         pageTitle.setText(pagetitre);
-
+        surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText));
         ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
         ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
 
