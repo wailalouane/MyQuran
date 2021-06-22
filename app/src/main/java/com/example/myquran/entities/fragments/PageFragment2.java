@@ -60,8 +60,8 @@ public class PageFragment2 extends Fragment {
 
         pageTitle.setText(pagetitre);
 
-        ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
-        ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
+        TextView hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
+        TextView showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
 
 
         final List<String> subStringList=new ArrayList<>();
