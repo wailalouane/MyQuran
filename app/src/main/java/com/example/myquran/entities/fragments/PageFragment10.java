@@ -47,8 +47,8 @@ public class PageFragment10 extends Fragment {
 
         TextView pageNum=rootView.findViewById(R.id.pageNum);
         pageNum.setText("571");
-        ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
-        ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
+        TextView hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
+        TextView showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
 
         surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText,numero));
         final List<String> subStringList=new ArrayList<>();
