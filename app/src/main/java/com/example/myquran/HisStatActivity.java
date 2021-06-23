@@ -28,5 +28,6 @@ public class HisStatActivity extends AppCompatActivity {
         historiqueVpAdapter.addFragment(new PagesHistoriqueFragment(),"PAGE STATS");
         historiqueVpAdapter.addFragment(new HistoriqueFragment(),"HISTORIQUE");
         historiqueVpAdapter.addFragment(new PlusLusFragment(),"MOST READ");
+        mViewPager.setAdapter(historiqueVpAdapter);
     }
 }

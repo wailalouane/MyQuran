@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -39,7 +40,9 @@ public class RecyclePlusLusAdapter extends RecyclerView.Adapter<RecyclePlusLusAd
         holder.surahName.setText(pageModelList.get(position).getPageTitle());
         holder.pageNum.setText(String.valueOf(pageModelList.get(position).getPageNum()));
         holder.cpt.setText(String.valueOf(pageModelList.get(position).getCpt()));
-
+        int cpt100;
+        cpt100=(pageModelList.get(position).getCpt()*100)/20;
+        holder.mProgressBar.setProgress(cpt100);
 
     }
 
@@ -52,12 +55,15 @@ public class RecyclePlusLusAdapter extends RecyclerView.Adapter<RecyclePlusLusAd
         TextView surahName;
         TextView pageNum;
         TextView cpt;
+        ProgressBar mProgressBar;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             surahName=itemView.findViewById(R.id.surahName);
             pageNum=itemView.findViewById(R.id.pageNum);
             cpt=itemView.findViewById(R.id.cptSurah);
+            mProgressBar= itemView.findViewById(R.id.progress_circular);
+
         }
     }
 }

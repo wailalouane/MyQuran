@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.myquran.Adapter.RecyclePageHistoAdapter;
 import com.example.myquran.Adapter.RecyclePlusLusAdapter;
@@ -45,6 +46,10 @@ public class PagesHistoriqueFragment extends Fragment {
 
         adapter=new RecyclePageHistoAdapter(pageModelList,rootView.getContext());
 
+        if(pageModelList.isEmpty()){
+            TextView nothing=rootView.findViewById(R.id.nothing_to_show);
+            nothing.setText("aucune page est personnalisé ");
+        }
         recyclerView.setAdapter(adapter);
 
         return rootView;

@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.myquran.Adapter.RecycleHistoAdapter;
 import com.example.myquran.Adapter.RecyclePageHistoAdapter;
@@ -46,6 +47,10 @@ public class HistoriqueFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         adapter=new RecycleHistoAdapter(historiqueModelsList,rootView.getContext());
+        if(historiqueModelsList.isEmpty()){
+            TextView nothing=rootView.findViewById(R.id.nothing_to_show);
+            nothing.setText("l'historique est vide");
+        }
 
         recyclerView.setAdapter(adapter);
 

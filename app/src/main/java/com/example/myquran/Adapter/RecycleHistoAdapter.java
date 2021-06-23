@@ -37,7 +37,7 @@ public class RecycleHistoAdapter extends RecyclerView.Adapter<RecycleHistoAdapte
     @Override
     public void onBindViewHolder(@NonNull  RecycleHistoAdapter.MyViewHolder holder, int position) {
         holder.pageNum.setText(String.valueOf(mHistoriqueModels.get(position).getSurahPage()));
-        holder.surahName.setText(mHistoriqueModels.get(position).getSurahPage()+" ");
+        holder.surahName.setText(mHistoriqueModels.get(position).getSurahName());
     }
 
     @Override

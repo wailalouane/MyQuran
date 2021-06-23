@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.example.myquran.Adapter.RecyclePlusLusAdapter;
 import com.example.myquran.HomeActivity;
@@ -46,7 +47,10 @@ public class PlusLusFragment extends Fragment {
         recyclerView.setLayoutManager(layoutManager);
 
         adapter=new RecyclePlusLusAdapter(pageModelList,rootView.getContext());
-
+        if(pageModelList.isEmpty()){
+            TextView nothing=rootView.findViewById(R.id.nothing_to_show);
+            nothing.setText("historiue est vide ");
+        }
         recyclerView.setAdapter(adapter);
 
 

@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -61,6 +62,9 @@ public class RecyclePageHistoAdapter extends RecyclerView.Adapter<RecyclePageHis
 
         holder.surahTitle.setText(surahName);
         holder.cptSurah.setText(String.valueOf(pageModelList.get(position).getCpt()));
+        int cpt100;
+        cpt100=(pageModelList.get(position).getCpt()*100)/20;
+        holder.mProgressBar.setProgress(cpt100);
     }
 
     @Override
@@ -72,13 +76,14 @@ public class RecyclePageHistoAdapter extends RecyclerView.Adapter<RecyclePageHis
         TextView cptSurah;
         TextView surahTitle;
         TextView pageNum;
+        ProgressBar mProgressBar;
 
         public MyViewHolder(@NonNull  View itemView) {
             super(itemView);
             cptSurah=itemView.findViewById(R.id.cptSurah);
             surahTitle=itemView.findViewById(R.id.surahTitle);
             pageNum=itemView.findViewById(R.id.pageNum);
-
+            mProgressBar= itemView.findViewById(R.id.progress_circular);
         }
     }
 }

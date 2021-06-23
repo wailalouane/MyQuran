@@ -1,5 +1,15 @@
 package com.example.myquran.entities.model;
+import android.graphics.Color;
+import android.provider.ContactsContract;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
+import android.widget.TextView;
+
+import com.example.myquran.connectionbd.DataBaseHelper;
+
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 public class Functions {
@@ -45,6 +55,28 @@ public class Functions {
                 return i;
         }
                 return -1;
+    }
+    public static SpannableString loadPages(TextView textView,int page){
+        SpannableString returtext= (SpannableString) textView.getText();
+        List<PageStatModel> pageStatModelList=new ArrayList<>();
+        ForegroundColorSpan fcswhite = new ForegroundColorSpan(Color.WHITE);
+        returtext.setSpan(fcswhite,0,returtext.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        DataBaseHelper dataBaseHelper=new DataBaseHelper(textView.getContext());
+       pageStatModelList=dataBaseHelper.getAllSubStringsPagesStat(page);
+        for (int i = 0; i < pageStatModelList.size(); i++) {
+            ForegroundColorSpan fcsred=new ForegroundColorSpan(Color.RED);
+            int start=pageStatModelList.get(i).getIndexDeb();
+            int end=pageStatModelList.get(i).getIndexFin();
+            returtext.setSpan(fcsred,start,end,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+        }
+        return returtext;
+    }
+
+
+    public static boolean thereIsStat(int page,TextView textView){
+        return new DataBaseHelper(textView.getContext()).getAllSubStringsPagesStat(page).isEmpty();
     }
 }
 
