@@ -66,8 +66,8 @@ public class PageFragment1 extends Fragment {
         TextView pageNum=rootView.findViewById(R.id.pageNum);
         pageNum.setText(String.valueOf(numero));
         final TextView surhText = rootView.findViewById(R.id.surahText);
-        ImageButton hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
-        ImageButton showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
+        TextView hideBtn=rootView.findViewById(R.id.hideBtn);//button li nkhebbi bih
+        TextView showBtn=rootView.findViewById(R.id.showBtn);//button li n affichi bih
 
         surhText.setCustomSelectionActionModeCallback(new StyleCallback(surhText,numero));
         int BissmilahPos = json.indexOf("بِسْمِ ٱللَّهِ ٱلرَّحْمَٰنِ ٱلرَّحِيم");
@@ -103,6 +103,7 @@ public class PageFragment1 extends Fragment {
         final String fullText=surhText.getText().toString();//all the page text
 
         ((MyQuranApp) getActivity().getApplication()).setSurahText(surhText);
+
 
 
         hideBtn.setOnClickListener(new View.OnClickListener() {
