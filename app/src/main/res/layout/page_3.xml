@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/shape"
                     android:fontFamily="@font/amiri_bold"
-                    android:letterSpacing="-0.15"
+                    android:letterSpacing="-0.06"
                     android:lineSpacingExtra="10dp"
                     android:text="surah text"
                     android:textAlignment="center"
