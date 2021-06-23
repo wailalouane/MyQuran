@@ -165,7 +165,7 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
     public void onSurahClick(int position) {
 
 
-        if(position<66){
+        if(surahList.get(position).getIdSurah()<67){
             Toast.makeText(HomeActivity.this,surahList.get(position).getNameSurahArabe()+"\n cette page n'est pa encore prête !",Toast.LENGTH_LONG).show();
         }
         else{
@@ -176,7 +176,7 @@ public class HomeActivity extends AppCompatActivity implements RecycleViewAdapte
 
            /* intent.putExtra("la valeur","jooowez");*/
 
-            Toast.makeText(HomeActivity.this,surahList.get(position).getNameSurahArabe(),Toast.LENGTH_SHORT).show();
+       //     Toast.makeText(HomeActivity.this,surahList.get(position).getNameSurahArabe(),Toast.LENGTH_SHORT).show();
 
             PageModel pageModel=new PageModel();
             pageModel.setPageTitle(surahList.get(position).getNameSurahArabe());
