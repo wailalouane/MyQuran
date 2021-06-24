@@ -113,7 +113,7 @@
                 android:layout_width="96dp"
                 android:layout_height="43dp"
                 android:layout_marginTop="32dp"
-                android:fontFamily="@font/omar_bold"
+                android:fontFamily="@font/crash2"
                 android:gravity="center"
                 android:text="00"
                 android:textColor="@color/white"
