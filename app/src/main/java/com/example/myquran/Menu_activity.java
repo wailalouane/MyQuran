@@ -16,6 +16,7 @@ public class Menu_activity extends AppCompatActivity {
     ImageView exit_image;
     ImageView Surah_list_image;
     ImageView problem_image;
+    ImageView douah_image;
 
     public static void setWindowFlag(Activity activity, final int bits, boolean on) {
 
@@ -53,6 +54,13 @@ public class Menu_activity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(Menu_activity.this,HisStatActivity.class));
+            }
+        });
+        douah_image = findViewById(R.id.douah_image);
+        douah_image.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Menu_activity.this,DouahActivity.class));
             }
         });
         if (Build.VERSION.SDK_INT >= 19 && Build.VERSION.SDK_INT < 21) {

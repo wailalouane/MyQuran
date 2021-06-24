@@ -10,11 +10,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HisStatActivity"></activity>
+        <activity android:name=".DouahActivity"></activity>
+        <activity android:name=".HisStatActivity" />
         <activity android:name=".Menu_activity" />
         <activity android:name=".PagesActivity" />
         <activity android:name=".HomeActivity" />
-        <activity android:name=".StatsHisActivity"/>
+        <activity android:name=".StatsHisActivity" />
         <activity android:name=".HistoriqueActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
