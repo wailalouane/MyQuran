@@ -6,11 +6,26 @@
     android:layout_height="match_parent"
     tools:context=".entities.fragments.HistoriqueFragment">
 
+    <View
+        android:id="@+id/view"
+        android:layout_width="match_parent"
+        android:layout_height="0.08dp"
+        android:background="#000000"
+        app:layout_constraintBottom_toTopOf="@+id/recycleHistorique"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout" />
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout"
         android:layout_width="match_parent"
-        android:layout_height="38dp"
+        android:layout_height="62dp"
+        android:background="@color/white"
         android:orientation="horizontal"
+        android:paddingTop="15dp"
+        android:paddingBottom="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -18,7 +33,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="16dp"
-            android:text="num de page"
+            android:fontFamily="@font/omar_bold"
+            android:textColor="@color/black"
+            android:text="رقم الصفحة"
+            android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
 
             app:layout_constraintStart_toStartOf="parent"
@@ -28,23 +46,28 @@
             android:id="@+id/cpt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/surah_name"
+            android:layout_marginEnd="20dp"
+            android:fontFamily="@font/omar_bold"
+            android:text="عدد مرات الزيارة"
+            android:textColor="@color/black"
+            android:textSize="15dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
 
-            />
+            app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleHistorique"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="393dp"
+        android:layout_height="593dp"
+        android:background="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout" />
+        app:layout_constraintTop_toBottomOf="@+id/view" />
 
     <TextView
         android:layout_marginTop="32dp"
