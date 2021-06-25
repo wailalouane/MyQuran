@@ -3,10 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/transparent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".entities.fragments.HistoriqueFragment">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layout"
+        android:background="@drawable/shape"
         android:layout_width="match_parent"
         android:layout_height="38dp"
         android:orientation="horizontal"
@@ -38,21 +41,23 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/surah_name"
-            app:layout_constraintStart_toEndOf="@id/numeroDpage"
-            app:layout_constraintEnd_toStartOf="@id/cpt"
             app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/cpt"
+            app:layout_constraintStart_toEndOf="@id/numeroDpage"
             app:layout_constraintTop_toTopOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/plusLusHistorique"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/layout"
-        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp"
+        android:background="@color/transparent"
         app:layout_constraintEnd_toEndOf="parent"
-        />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/layout" />
     <TextView
         android:layout_marginTop="32dp"
         android:id="@+id/nothing_to_show"

@@ -60,7 +60,7 @@ public class Functions {
         SpannableString returtext= (SpannableString) textView.getText();
         List<PageStatModel> pageStatModelList=new ArrayList<>();
         ForegroundColorSpan fcswhite = new ForegroundColorSpan(Color.WHITE);
-        returtext.setSpan(fcswhite,0,returtext.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        returtext.setSpan(fcswhite,0,returtext.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);// la page blach
 
         DataBaseHelper dataBaseHelper=new DataBaseHelper(textView.getContext());
        pageStatModelList=dataBaseHelper.getAllSubStringsPagesStat(page);

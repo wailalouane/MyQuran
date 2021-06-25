@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
 
     android:background="@drawable/shape">
 
@@ -42,6 +43,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
+        android:fontFamily="@font/omar_light"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
         android:text="@string/surah_name"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/cptSurah"

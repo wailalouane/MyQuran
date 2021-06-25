@@ -16,105 +16,111 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/layoutToolbar"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/transparent"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-
-            android:gravity="center"
-            android:text="قائمة السور"
-            android:fontFamily="@font/omar_bold"
-            android:textColor="@color/white"
-            android:textSize="30dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-        </TextView>
-
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-        <SearchView
-            android:id="@+id/search_bar"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginBottom="16dp"
-            android:autofillHints="search surah"
-            android:background="@drawable/rechercher_shape"
-            app:layout_constraintBottom_toTopOf="@+id/historique_layout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/layoutToolbar"
-            app:queryHint="search surah name">
-
-        </SearchView>
+            android:layout_height="match_parent">
 
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/historique_layout"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/search_bar">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/layoutToolbar"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:background="@color/transparent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="25dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/shape"
-                android:text="@string/historique"
-                android:textColor="@color/black"
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
 
-                />
+                    android:fontFamily="@font/omar_bold"
+                    android:gravity="center"
+                    android:text="قائمة السور"
+                    android:textColor="@color/white"
+                    android:textSize="30dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                </TextView>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <SearchView
+                android:id="@+id/search_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:autofillHints="search surah"
+                android:background="@drawable/rechercher_shape"
+                app:layout_constraintBottom_toTopOf="@+id/historique_layout"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/layoutToolbar"
+                app:queryHint="search surah name">
+
+            </SearchView>
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/historique_layout"
+                android:layout_width="394dp"
+                android:layout_height="65dp"
+                android:layout_marginTop="16dp"
+                android:paddingLeft="10dp"
+                android:orientation="horizontal"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/search_bar">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="0dp"
+                    android:gravity="center"
+                    android:lineSpacingExtra="-10dp"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginEnd="25dp"
+                    android:background="@drawable/shape"
+                    android:fontFamily="@font/omarr"
+                    android:text="@string/historique"
+                    android:textColor="@color/black"
+                    android:textSize="15dp"
+                    android:textStyle="bold"
+
+                    />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/historique"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_marginTop="10dp"
+
+
+                    android:orientation="horizontal"
+
+                    />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/historique"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
+                android:id="@+id/listSurah"
+                android:layout_width="388dp"
+                android:layout_height="547dp"
+                android:layout_marginTop="10dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/historique_layout" />
 
 
-                android:orientation="horizontal"
-
-                />
-
-
-        </androidx.appcompat.widget.LinearLayoutCompat>
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/listSurah"
-            android:layout_width="388dp"
-            android:layout_height="547dp"
-            android:layout_marginTop="10dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/historique_layout" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     </ScrollView>
