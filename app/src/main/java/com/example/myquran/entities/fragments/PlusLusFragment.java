@@ -15,6 +15,7 @@ import com.example.myquran.Adapter.RecyclePlusLusAdapter;
 import com.example.myquran.HomeActivity;
 import com.example.myquran.R;
 import com.example.myquran.connectionbd.DataBaseHelper;
+import com.example.myquran.entities.model.Functions;
 import com.example.myquran.entities.model.PageModel;
 
 import java.util.ArrayList;
@@ -34,7 +35,7 @@ public class PlusLusFragment extends Fragment {
         DataBaseHelper dataBaseHelper=new DataBaseHelper(rootView.getContext());
         pageModelList=dataBaseHelper.getAllMostReadPage();
 
-
+        pageModelList= Functions.SortPageModelArray(pageModelList);
         RecyclerView recyclerView;
         RecyclerView.Adapter adapter;
         RecyclerView.LayoutManager layoutManager;

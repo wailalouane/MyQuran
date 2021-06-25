@@ -78,5 +78,30 @@ public class Functions {
     public static boolean thereIsStat(int page,TextView textView){
         return new DataBaseHelper(textView.getContext()).getAllSubStringsPagesStat(page).isEmpty();
     }
+
+    public static  List<PageModel> SortPageModelArray(List<PageModel> pageModels){
+        List<PageModel> pages = new ArrayList<>();
+        PageModel pageModel = pageModels.get(0);
+        int n =pageModels.toArray().length-1;
+        while (n>=0){
+            pageModel=MaxCptPage(pageModels);
+             pages.add(pageModel);
+             pageModels.remove(pageModel);
+
+             n--;
+        }
+        return pages;
+    }
+    public  static PageModel MaxCptPage(List<PageModel> pageModel1){
+        PageModel pageModel = pageModel1.get(0);
+        for (PageModel pageModel2:pageModel1){
+            if (pageModel.getCpt()<pageModel2.getCpt()){
+                pageModel=pageModel2;
+            }
+
+
+        }
+       return pageModel;
+    }
 }
 
