@@ -1,5 +1,6 @@
 package com.example.myquran.entities.fragments;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 
 import com.example.myquran.Adapter.RecyclePageHistoAdapter;
 import com.example.myquran.Adapter.RecyclePlusLusAdapter;
+import com.example.myquran.PagesActivity;
 import com.example.myquran.R;
 import com.example.myquran.connectionbd.DataBaseHelper;
 import com.example.myquran.entities.model.PageModel;
@@ -21,19 +23,20 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-public class PagesHistoriqueFragment extends Fragment {
-
-
+public class PagesHistoriqueFragment extends Fragment implements RecyclePageHistoAdapter.OnPageHistListener {
+    int page;
+    List<PageModel> pageModelLists=new ArrayList<>();
+    View viewIN;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final ViewGroup rootView =(ViewGroup)inflater.inflate(R.layout.fragment_pages_historique,container,false);
-
+        viewIN=rootView;
         List<PageModel> pageModelList=new ArrayList<>();
         DataBaseHelper dataBaseHelper=new DataBaseHelper(rootView.getContext());
 
         pageModelList=dataBaseHelper.getPagesStatCount();
-
+        pageModelLists=pageModelList;
         RecyclerView recyclerView;
         RecyclerView.Adapter adapter;
         RecyclerView.LayoutManager layoutManager;
@@ -44,7 +47,7 @@ public class PagesHistoriqueFragment extends Fragment {
         layoutManager=new LinearLayoutManager(rootView.getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        adapter=new RecyclePageHistoAdapter(pageModelList,rootView.getContext());
+        adapter=new RecyclePageHistoAdapter(pageModelList,rootView.getContext(),this);
 
         if(pageModelList.isEmpty()){
             TextView nothing=rootView.findViewById(R.id.nothing_to_show);
@@ -53,5 +56,13 @@ public class PagesHistoriqueFragment extends Fragment {
         recyclerView.setAdapter(adapter);
 
         return rootView;
+    }
+
+    @Override
+    public void onPageHistClick(int position) {
+        page=pageModelLists.get(position).getPageNum();
+        Intent intent =new Intent(viewIN.getContext(), PagesActivity.class);
+        intent.putExtra("position",page);
+        startActivity(intent);
     }
 }

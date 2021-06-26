@@ -21,10 +21,11 @@ public class RecyclePageHistoAdapter extends RecyclerView.Adapter<RecyclePageHis
 
     List<PageModel> pageModelList=new ArrayList<>();
     Context mContext;
-
-    public RecyclePageHistoAdapter(List<PageModel> pageModelList, Context context) {
+    OnPageHistListener mOnPageHistListener;
+    public RecyclePageHistoAdapter(List<PageModel> pageModelList, Context context,OnPageHistListener onPageHistListener) {
         this.pageModelList = pageModelList;
         mContext = context;
+        this.mOnPageHistListener=onPageHistListener;
     }
 
     @NonNull
@@ -32,7 +33,7 @@ public class RecyclePageHistoAdapter extends RecyclerView.Adapter<RecyclePageHis
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.one_historique_pages_count,parent,false);
-        RecyclePageHistoAdapter.MyViewHolder holder=new RecyclePageHistoAdapter.MyViewHolder(view);
+        RecyclePageHistoAdapter.MyViewHolder holder=new RecyclePageHistoAdapter.MyViewHolder(view,mOnPageHistListener);
         return holder;
     }
 
@@ -72,18 +73,28 @@ public class RecyclePageHistoAdapter extends RecyclerView.Adapter<RecyclePageHis
         return pageModelList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView cptSurah;
         TextView surahTitle;
         TextView pageNum;
         ProgressBar mProgressBar;
-
-        public MyViewHolder(@NonNull  View itemView) {
+        OnPageHistListener mOnPageHistListener;
+        public MyViewHolder(@NonNull  View itemView,OnPageHistListener onPageHistListener) {
             super(itemView);
+            this.mOnPageHistListener=onPageHistListener;
             cptSurah=itemView.findViewById(R.id.cptSurah);
             surahTitle=itemView.findViewById(R.id.surahTitle);
             pageNum=itemView.findViewById(R.id.pageNum);
             mProgressBar= itemView.findViewById(R.id.progress_circular);
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            mOnPageHistListener.onPageHistClick(getAdapterPosition());
+        }
+    }
+    public interface OnPageHistListener{
+        void onPageHistClick(int position);
     }
 }

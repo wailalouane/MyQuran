@@ -19,10 +19,11 @@ public class RecycleHistoAdapter extends RecyclerView.Adapter<RecycleHistoAdapte
 
     List<HistoriqueModel> mHistoriqueModels=new ArrayList<>();
     Context mContext;
-
-    public RecycleHistoAdapter(List<HistoriqueModel> historiqueModels, Context context) {
+    OnHistListener mOnHistListener;
+    public RecycleHistoAdapter(List<HistoriqueModel> historiqueModels, Context context,OnHistListener onHistListener) {
         mHistoriqueModels = historiqueModels;
         mContext = context;
+        this.mOnHistListener=onHistListener;
     }
 
     @NonNull
@@ -30,7 +31,7 @@ public class RecycleHistoAdapter extends RecyclerView.Adapter<RecycleHistoAdapte
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.one_historque_element,parent,false);
-        MyViewHolder holder=new MyViewHolder(view);
+        MyViewHolder holder=new MyViewHolder(view,mOnHistListener);
         return holder;
     }
 
@@ -45,14 +46,26 @@ public class RecycleHistoAdapter extends RecyclerView.Adapter<RecycleHistoAdapte
         return mHistoriqueModels.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView surahName;
         TextView pageNum;
-
-        public MyViewHolder(@NonNull  View itemView) {
+        OnHistListener mOnHistListener;
+        public MyViewHolder(@NonNull  View itemView,OnHistListener onHistListener) {
             super(itemView);
+            this.mOnHistListener=onHistListener;
             surahName=itemView.findViewById(R.id.surahName);
             pageNum=itemView.findViewById(R.id.pageNum);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            mOnHistListener.onHistClick(getAdapterPosition());
         }
     }
+
+    public interface OnHistListener{
+        void onHistClick(int position);
+    }
+
 }

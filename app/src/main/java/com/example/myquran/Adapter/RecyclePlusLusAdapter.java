@@ -19,10 +19,11 @@ import java.util.List;
 public class RecyclePlusLusAdapter extends RecyclerView.Adapter<RecyclePlusLusAdapter.MyViewHolder> {
     List<PageModel> pageModelList=new ArrayList<>();
     Context mContext;
-
-    public RecyclePlusLusAdapter(List<PageModel> pageModelList, Context context) {
+    private OnMostReadListener mOnMostReadListener;
+    public RecyclePlusLusAdapter(List<PageModel> pageModelList, Context context,OnMostReadListener onMostReadListener) {
         this.pageModelList = pageModelList;
         this.mContext = context;
+        this.mOnMostReadListener=onMostReadListener;
     }
 
     @NonNull
@@ -30,7 +31,7 @@ public class RecyclePlusLusAdapter extends RecyclerView.Adapter<RecyclePlusLusAd
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull  ViewGroup parent, int viewType) {
         View view= LayoutInflater.from(parent.getContext()).inflate(R.layout.one_plus_lus_page,parent,false);
-        RecyclePlusLusAdapter.MyViewHolder holder=new RecyclePlusLusAdapter.MyViewHolder(view);
+        RecyclePlusLusAdapter.MyViewHolder holder=new RecyclePlusLusAdapter.MyViewHolder(view,mOnMostReadListener);
 
         return holder;
     }
@@ -51,19 +52,28 @@ public class RecyclePlusLusAdapter extends RecyclerView.Adapter<RecyclePlusLusAd
         return pageModelList.size();
     }
 
-    public class MyViewHolder extends RecyclerView.ViewHolder {
+    public class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         TextView surahName;
         TextView pageNum;
         TextView cpt;
         ProgressBar mProgressBar;
-
-        public MyViewHolder(@NonNull View itemView) {
+        OnMostReadListener onMostReadListener;
+        public MyViewHolder(@NonNull View itemView,OnMostReadListener onMostReadListener) {
             super(itemView);
+            this.onMostReadListener=onMostReadListener;
             surahName=itemView.findViewById(R.id.surahName);
             pageNum=itemView.findViewById(R.id.pageNum);
             cpt=itemView.findViewById(R.id.cptSurah);
             mProgressBar= itemView.findViewById(R.id.progress_circular);
-
+            itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+        onMostReadListener.onMostReadClick(getAdapterPosition());
+        }
+    }
+    public interface OnMostReadListener{
+        void onMostReadClick(int position);
     }
 }

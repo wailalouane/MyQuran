@@ -1,14 +1,20 @@
 package com.example.myquran.entities.model;
 import android.graphics.Color;
+import android.os.Build;
 import android.provider.ContactsContract;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.widget.TextView;
 
+import androidx.annotation.RequiresApi;
+
 import com.example.myquran.connectionbd.DataBaseHelper;
 
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 
@@ -79,8 +85,12 @@ public class Functions {
         return new DataBaseHelper(textView.getContext()).getAllSubStringsPagesStat(page).isEmpty();
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public static  List<PageModel> SortPageModelArray(List<PageModel> pageModels){
-        List<PageModel> pages = new ArrayList<>();
+
+        pageModels.sort(Comparator.comparing(PageModel::getCpt));
+        Collections.reverse(pageModels);
+       /* List<PageModel> pages = new ArrayList<>();
         PageModel pageModel = pageModels.get(0);
         int n =pageModels.toArray().length-1;
         while (n>=0){
@@ -89,8 +99,8 @@ public class Functions {
              pageModels.remove(pageModel);
 
              n--;
-        }
-        return pages;
+        }*/
+        return pageModels;
     }
     public  static PageModel MaxCptPage(List<PageModel> pageModel1){
         PageModel pageModel = pageModel1.get(0);
