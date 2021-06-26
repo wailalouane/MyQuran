@@ -20,6 +20,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.myquran.MyQuranApp;
 import com.example.myquran.R;
+import com.example.myquran.connectionbd.DataBaseHelper;
 import com.example.myquran.entities.model.Functions;
 import com.example.myquran.entities.model.StyleCallback;
 
@@ -89,7 +90,8 @@ public class PageFragment8 extends Fragment {
 
 
 
-
+                DataBaseHelper dataBaseHelper=new DataBaseHelper(rootView.getContext());
+                dataBaseHelper.deleteSubStringsPagesStat(numero);
 
 
                 cptShow=0;

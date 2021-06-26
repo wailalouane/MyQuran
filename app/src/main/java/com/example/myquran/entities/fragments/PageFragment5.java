@@ -21,6 +21,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.myquran.MyQuranApp;
 import com.example.myquran.R;
+import com.example.myquran.connectionbd.DataBaseHelper;
 import com.example.myquran.entities.model.Functions;
 import com.example.myquran.entities.model.StyleCallback;
 
@@ -105,7 +106,8 @@ public class PageFragment5 extends Fragment {
                         fullSpanneble.setSpan(new StyleSpan(Typeface.BOLD),startIndex,startIndex+subStringList.get(i).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                 }
 
-
+                DataBaseHelper dataBaseHelper=new DataBaseHelper(rootView.getContext());
+                dataBaseHelper.deleteSubStringsPagesStat(numero);
 
 
 
