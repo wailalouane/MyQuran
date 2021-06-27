@@ -54,7 +54,7 @@ public class Functions {
         return GetIndexOfFirstWord(s,GetIndexOfFirstWord(s,PositionOfAyahSymbol)+1);
     }
     public static int GetIndexOfLastWord(String s ,int PositionOfAyahSymbol){
-        char[] arrayList = s.toCharArray();
+        char[] arrayList = s.toCharArray() ;
         int  pos = 0;
         for (int i =PositionOfAyahSymbol;i>0;i--){
             if (arrayList[i]==' ')
