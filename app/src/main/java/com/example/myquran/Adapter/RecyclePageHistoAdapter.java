@@ -43,19 +43,19 @@ public class RecyclePageHistoAdapter extends RecyclerView.Adapter<RecyclePageHis
         int x=pageModelList.get(position).getPageNum();
         String surahName="";
         switch (x){
-            case 9: case 8:
+            case 562: case 563:
                 surahName="سورة الملك";
                 break;
-            case 7: case 6:
+            case 564: case 565:
                 surahName= "سورة القلم";
                 break;
-            case 5: case 4:
+            case 566: case 567:
                 surahName="سورة الحاقة";
                 break;
-            case 3 : case 2:
+            case 568 : case 569:
                 surahName="سورة المعارج";
                 break;
-            case 1: case 0:
+            case 570: case 571:
                 surahName="سورة نوح";
                 break;
 

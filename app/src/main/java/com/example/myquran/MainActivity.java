@@ -14,7 +14,7 @@ import android.view.WindowManager;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static int SPLACH_TIME_OUT = 4000;
+    private static int SPLACH_TIME_OUT = 40000;
 
     private String surah_text;
 
