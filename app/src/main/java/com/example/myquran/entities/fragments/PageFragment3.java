@@ -24,6 +24,7 @@ import com.example.myquran.MyQuranApp;
 import com.example.myquran.R;
 import com.example.myquran.connectionbd.DataBaseHelper;
 import com.example.myquran.entities.model.Functions;
+import com.example.myquran.entities.model.PageStatModel;
 import com.example.myquran.entities.model.StyleCallback;
 
 import org.json.JSONArray;
@@ -84,18 +85,32 @@ public class PageFragment3 extends Fragment {
 
         }
 
-
-
-
-
+        surhText.setText(s1);
         final String fullText=surhText.getText().toString();//all the page text
 
+        ((MyQuranApp) getActivity().getApplication()).setSurahText(surhText);
+        if(Functions.thereIsStat(numero,surhText)){
+            surhText.setText(s1);
+        }else{
+            cptShow=0;
+            SpannableString fullSpannable =Functions.loadPages(surhText,numero);
+            int startIndex =fullText.indexOf(subStringList.get(4));
+            fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),startIndex,startIndex+subStringList.get(4).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            startIndex =fullText.indexOf(subStringList.get(5));
+            fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),startIndex,startIndex+subStringList.get(5).length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            for (int i :Functions.GetPosAyah(json)){
+                fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+            }
+
+        }
         hideBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {//when we click on hide brn
                 SpannableString fullSpanneble=new SpannableString(fullText);//SpannableString pour pouvez changez la couleur
                 /*String subString="سورة الملك";*/
-                /*Toast.makeText(rootView.getContext(),"cliicked",Toast.LENGTH_SHORT).show();*/
+                if (!Functions.thereIsStat(numero,surhText))
+                    Toast.makeText(rootView.getContext(),"لقد تم محو سجل المراجعة في هذه الصفحة  ",Toast.LENGTH_SHORT).show();
 
                 fullSpanneble.setSpan(fcsWhite,0,fullSpanneble.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);//hada bach nkhebi kolch w naffichi ghir wach lazem
                 for (int i :Functions.GetPosAyah(json)){
@@ -136,7 +151,20 @@ public class PageFragment3 extends Fragment {
                 String fullText=surhText.getText().toString();
                 SpannableString fullSpannable=new SpannableString(fullText);
                 //   cptShow=2;
+
                 fullSpannable.setSpan(fcsWhite,0,fullSpannable.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+
+                if(Functions.thereIsStat(numero,surhText)){
+                    fullSpannable.setSpan(fcsWhite,0,fullSpannable.length(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                }else{
+
+                    List<PageStatModel> pageStatModels = Functions.loadPagesLists(surhText,numero);
+
+                    for (PageStatModel pageStatModel :pageStatModels ){
+                        fullSpannable.setSpan(new ForegroundColorSpan(Color.RED),pageStatModel.getIndexDeb(),pageStatModel.getIndexFin(),Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+                    }
+
+                }
                 for (int i :Functions.GetPosAyah(json)){
                     fullSpannable.setSpan(new StyleSpan(Typeface.BOLD),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
                     fullSpannable.setSpan(new ForegroundColorSpan(Color.BLACK),i-1,i+2,Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);

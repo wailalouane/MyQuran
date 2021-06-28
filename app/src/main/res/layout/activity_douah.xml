@@ -12,9 +12,9 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginTop="32dp"
 
+        android:layout_marginBottom="16dp"
         android:fontFamily="@font/omar_bold"
         android:text="دعاء الختم"
         android:textColor="@color/white"
@@ -28,9 +28,11 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout6"
-        android:layout_width="391dp"
-
-        android:layout_height="705dp"
+        android:layout_width="match_parent"
+        android:layout_height="661dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:paddingBottom="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -39,10 +41,11 @@
 
         <TextView
             android:id="@+id/douah_text"
-            android:layout_width="340dp"
-            android:layout_height="613dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="80dp"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10sp"
+            android:layout_marginRight="10sp"
+            android:layout_marginBottom="20dp"
             android:background="@drawable/shape"
             android:fontFamily="@font/omar_light"
             android:gravity="center"
@@ -53,8 +56,10 @@
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.461"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0">
 
         </TextView>
 

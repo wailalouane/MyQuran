@@ -62,6 +62,15 @@ public class Functions {
         }
                 return -1;
     }
+
+    public static List<PageStatModel> loadPagesLists(TextView textView,int page){
+        List<PageStatModel> pageStatModelList=new ArrayList<>();
+        DataBaseHelper dataBaseHelper=new DataBaseHelper(textView.getContext());
+        pageStatModelList=dataBaseHelper.getAllSubStringsPagesStat(page);
+
+        return pageStatModelList;
+    }
+
     public static SpannableString loadPages(TextView textView,int page){
         SpannableString returtext= (SpannableString) textView.getText();
         List<PageStatModel> pageStatModelList=new ArrayList<>();
