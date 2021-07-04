@@ -17,4 +17,8 @@ public class HelpFragment1 extends Fragment {
         ViewGroup rootView=(ViewGroup)inflater.inflate(R.layout.help_page1,container,false);
         return rootView;
     }
+
+
+
+
 }
