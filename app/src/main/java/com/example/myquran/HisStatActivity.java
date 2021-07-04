@@ -25,9 +25,9 @@ public class HisStatActivity extends AppCompatActivity {
         mTabLayout.setupWithViewPager(mViewPager);
 
         HistoriqueVpAdapter historiqueVpAdapter =new HistoriqueVpAdapter(getSupportFragmentManager(), FragmentPagerAdapter.BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT);
-        historiqueVpAdapter.addFragment(new PagesHistoriqueFragment(),"PAGE STATS");
-        historiqueVpAdapter.addFragment(new HistoriqueFragment(),"HISTORIQUE");
-        historiqueVpAdapter.addFragment(new PlusLusFragment(),"MOST READ");
+        historiqueVpAdapter.addFragment(new PagesHistoriqueFragment(),"احصائيات الصفحات");
+        historiqueVpAdapter.addFragment(new HistoriqueFragment(),"السور التي تم\n زيارتها مؤخرا");
+        historiqueVpAdapter.addFragment(new PlusLusFragment(),"السور الأكثر زيارة");
         mViewPager.setAdapter(historiqueVpAdapter);
     }
 }
