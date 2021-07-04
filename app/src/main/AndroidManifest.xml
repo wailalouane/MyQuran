@@ -10,7 +10,8 @@
         android:roundIcon="@drawable/logopfeicon"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".DouahActivity"></activity>
+        <activity android:name=".HelpActivity"></activity>
+        <activity android:name=".DouahActivity" />
         <activity android:name=".HisStatActivity" />
         <activity android:name=".Menu_activity" />
         <activity android:name=".PagesActivity" />

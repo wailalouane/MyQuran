@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:id="@+id/voir"
 
-        android:title="Voir LE Text"
+        android:title="Voir le Text"
         app:showAsAction="always" />
 
 
