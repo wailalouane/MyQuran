@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
 
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="24dp"
         android:src="@drawable/guide_show"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/textView6"
@@ -43,19 +43,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="32dp"
         android:fontFamily="@font/omarr"
-        android:textStyle="bold"
         android:gravity="right"
-        android:text="تطبيقنا يهدف\n لإعطاء طرق جديدة\n للمراجعة بحيث يمنح\n المستخدم إمكانية\n
-تدريب ذاكرته مع\n توفير احصائيات\n  تساعده  على\n المراجعة بنفسه
-"
+        android:text=" كما يمكنك مراجعة\n القرآن على تطبيقنا\n مثلما تراجع على\n المصحف العادي من\n حيث عدد الأسطر \nووضعية الكلمات\n مثل المصحف المدني"
         android:textColor="@color/white"
         android:textSize="25sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/imageView3"
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7">
+        app:layout_constraintTop_toBottomOf="@+id/textView7"
+        app:layout_constraintVertical_bias="1.0">
 
 
     </TextView>

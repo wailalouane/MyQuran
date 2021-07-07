@@ -46,8 +46,8 @@
         android:layout_marginStart="8dp"
         android:fontFamily="@font/omarr"
         android:gravity="right"
-        android:text="تطبيقنا يهدف\n لإعطاء طرق جديدة\n للمراجعة بحيث يمنح\n المستخدم إمكانية\n
-تدريب ذاكرته مع\n توفير احصائيات\n  تساعده  على\n المراجعة بنفسه\nوعبر هذه الدليل\nسوف نساعدك\nعلى استعمال تطبيقنا
+        android:text="تطبيقنا يهدف\n لإعطاء طرق جديدة\n للمراجعة بحيث يمنحك\n  إمكانية
+تدريب ذاكرتك\n مع توفير احصائيات\n  تساعدك  على\n المراجعة بنفسك\nوعبر هذه الدليل\nسوف نساعدك\nعلى استعمال تطبيقنا
 "
         android:textColor="@color/white"
         android:textSize="25sp"
