@@ -39,6 +39,61 @@
 
     </TextView>
 
+    <ImageView
+        android:id="@+id/next_image3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:src="@drawable/back_arrow"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/back_image2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+
+        android:src="@drawable/arrow_back"
+        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </ImageView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:fontFamily="@font/omarr"
+        android:text="الصفحة السابقة"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/back_image2"
+        app:layout_constraintStart_toEndOf="@+id/back_image2"
+        app:layout_constraintTop_toTopOf="@+id/back_image2">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/omarr"
+        android:text="الصفحة التالية"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/next_image3"
+        app:layout_constraintEnd_toStartOf="@+id/next_image3"
+        app:layout_constraintTop_toTopOf="@+id/next_image3">
+
+    </TextView>
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="wrap_content"
